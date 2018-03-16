@@ -14,7 +14,7 @@ timezone:
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://yoursite.com
 root: /
-permalink: :year/:month/:day/:title/
+permalink: :year-:month/:id/
 permalink_defaults:
 
 # Directory
@@ -87,9 +87,16 @@ feed:
 sitemap:
   path: sitemap.xml
 
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
+
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:clikks/clikks.github.io.git
-  branch: master
+  repo:
+    github: git@github.com:clikks/clikks.github.io.git,master
+    gitee: git@gitee.com:evobot/evobot.git,master
