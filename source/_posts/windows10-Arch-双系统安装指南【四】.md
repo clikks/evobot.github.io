@@ -1,7 +1,13 @@
+---
 title: windows10 & Arch 双系统安装指南【四】
-date: 2016-02-18 22:05:11
-tags: [linux,archlinux,cinnamon,windows10]
+tags:
+  - linux
+  - archlinux
+  - cinnamon
+  - windows10
 categories: Linux
+abbrlink: f5f3d6e0
+date: 2016-02-18 22:05:11
 ---
 ![](http://7xqo9u.com1.z0.glb.clouddn.com/arch%20cinnamon%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE20160214155947.png)
 经过前一篇的步骤，我们完成了常用的应用软件的安装，可以说现在arch已经完全不影响使用了，但是，我们都希望自己的系统环境比较美观，所以，这一篇，我们来对系统进行美化，具体包括主题安装，扩展设置，字体配置等等。

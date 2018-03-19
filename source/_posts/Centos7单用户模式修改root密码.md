@@ -1,3 +1,4 @@
+---
 title: Centos7单用户模式修改root密码
 author: Evobot
 tags:
@@ -5,8 +6,9 @@ tags:
   - Linux
 categories:
   - Linux
+image: 'http://p5qynomrl.bkt.clouddn.com/1521312295772z2f2ptcr.png?imageslim'
+abbrlink: c398f700
 date: 2017-08-27 21:17:00
-image: "http://p5qynomrl.bkt.clouddn.com/1521312295772z2f2ptcr.png?imageslim"
 ---
 对于忘记root密码的情况，我们可以进入Centos的单用户模式，来修改我们的root密码，下面为如何进入单用户模式并修改root密码的详细步骤。
 <!--more-->

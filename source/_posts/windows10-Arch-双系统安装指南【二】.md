@@ -1,7 +1,13 @@
-title: 'windows10 & Arch 双系统安装指南【二】'
-date: 2016-02-14 20:53:46
-tags: [linux,archlinux,cinnamon,windows10]
+---
+title: windows10 & Arch 双系统安装指南【二】
+tags:
+  - linux
+  - archlinux
+  - cinnamon
+  - windows10
 categories: Linux
+abbrlink: fc06cd7
+date: 2016-02-14 20:53:46
 ---
 ![](http://7xqo9u.com1.z0.glb.clouddn.com/arch%20cinnamon%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE20160214223028.png)
 

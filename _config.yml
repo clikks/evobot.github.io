@@ -14,7 +14,10 @@ timezone: Asia/Shanghai
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://www.evobot.cn
 root: /
-permalink: :year-:month/:id/
+permalink: post/:abbrlink.html
+abbrlink:
+  alg: crc32
+  rep: hex
 permalink_defaults:
 
 # Directory

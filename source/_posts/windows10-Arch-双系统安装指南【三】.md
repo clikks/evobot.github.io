@@ -1,7 +1,13 @@
+---
 title: windows10 & Arch 双系统安装指南【三】
-date: 2016-02-14 22:37:07
-tags: [linux,archlinux,cinnamon,windows10]
+tags:
+  - linux
+  - archlinux
+  - cinnamon
+  - windows10
 categories: Linux
+abbrlink: 42decf85
+date: 2016-02-14 22:37:07
 ---
 ![](http://7xqo9u.com1.z0.glb.clouddn.com/arch%20cinnamon%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE20160215002852.png)
 经过上一篇的配置，我们已经有了一个比较粗糙的Cinnamon桌面的Arch系统，但是还缺少很多基础的应用软件，桌面也不够美观，这一篇我们安装常用的应用软件。
