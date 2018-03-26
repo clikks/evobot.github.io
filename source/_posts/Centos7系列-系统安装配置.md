@@ -1,17 +1,14 @@
 ---
-title: Centos7安装配置
-tags:
-  - Linux
-  - Centos
-categories:
-  - Linux
+title: Centos7系列:系统安装配置
+tags: [Linux, Centos]
+categories: Centos7
 author: Evobot
-image: 'http://p5qynomrl.bkt.clouddn.com/1521483772581ovq9z70a.png?imageslim'
+image: http://p5qynomrl.bkt.clouddn.com/1521483772581ovq9z70a.png?imageslim
 abbrlink: 79bae30d
 date: 2017-08-18 22:11:00
 ---
 在VMware虚拟机中安装Centos7，首先要创建一个虚拟机，再使用Centos7的安装光盘镜像进行安装。
-<!--more-->
+<!-- more -->
 # 1. 创建虚拟机
 下载VMware虚拟机可以到[猿课资源下载地址](http://r.aminglinux.com)下载安装
 - 点击创建新的虚拟机，进入新建虚拟机向导

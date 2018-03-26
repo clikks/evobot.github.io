@@ -1,8 +1,9 @@
 ---
 title: {{ title }}
 date: {{ date }}
-categories: 
+categories:
 tags:
----
-[TOC]
+author: Evobot
+image:
+photo:
 ---

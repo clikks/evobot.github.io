@@ -28,7 +28,7 @@ archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
-skip_render:
+skip_render: 'common/*'
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -81,6 +81,7 @@ theme: next
 Plugins:
 - hexo-generator-feed
 - hexo-generator-sitemap
+- hexo-symbols-count-time
 #Feed Atom
 feed:
   type: rss2
@@ -123,3 +124,10 @@ admin:
       SecretKey: X_i35r1GNyhils2pkyxs5iPDmmiJE4oFC3WQKEQw
       BucketName: hexo-admin
       bucketHost: p5qynomrl.bkt.clouddn.com
+
+# 字数统计
+symbols_count_time:
+  symbols: true
+  time: true
+  total_symbols: true
+  total_time: false

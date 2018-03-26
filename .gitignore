@@ -6,4 +6,5 @@ node_modules/
 public/
 .deploy*/
 _admin-config.yml
-/themes/
+.ipynb_checkpoints
+/themes/next5

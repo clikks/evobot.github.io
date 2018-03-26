@@ -12,7 +12,7 @@ date: 2016-02-14 20:53:46
 ![](http://7xqo9u.com1.z0.glb.clouddn.com/arch%20cinnamon%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE20160214223028.png)
 
 在上一篇我们已经完成了基础系统的安装，目前开机archlinux只具有基础的命令行模式，本篇我们来完成一些基础配置和Cinnamon图形界面的安装。
-<!--more-->
+<!-- more -->
 
 ---
 # 基础设置

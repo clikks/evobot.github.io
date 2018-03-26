@@ -1,0 +1,72 @@
+// Custom styles.
+// 文章标题字体
+.posts-expand .post-title {
+    font-size: 26px;
+    font-weight: 700;
+}
+
+/*
+// 右下角返回顶部按钮样式
+.back-to-top {
+    line-height: 1.5;
+    right: 10px;
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-top: 2.5px;
+    padding-bottom: 2.5px;
+    background-color: rgba(247, 149, 51, 0.75);
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.35);
+}
+.back-to-top.back-to-top-on {
+    bottom: 10px;
+}
+*/
+
+// 侧栏头像（圆形以及旋转效果）
+.site-author-image {
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 100%;
+    transition: transform 1.0s ease-out;
+}
+img:hover {
+    transform: rotateZ(360deg);
+}
+.posts-expand .post-body img:hover {
+    transform: initial;
+}
+
+// 侧栏RSS按钮样式
+.feed-link {
+    margin-top: 15px;
+    margin-left: 7px;
+}
+
+.feed-link a {
+    border: 1px solid rgb(158, 158, 158) !important;
+    border-radius: 15px;
+}
+.feed-link a:hover {
+    background-color: rgb(211, 211, 211);
+}
+
+//代码块颜色
+code {
+    color: #ff7600;
+    background: #fbf7f8;
+    margin: 2px;
+}
+// 大代码块的自定义样式
+.highlight, pre {
+    margin: 5px 0;
+    padding: 5px;
+    border-radius: 3px;
+}
+.highlight, code, pre {
+    border: 1px solid #d6d6d6;
+}
+
+// 自定义的文章摘要图片样式
+img.img-topic {
+    width: 100%;
+}

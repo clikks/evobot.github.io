@@ -16,7 +16,7 @@ Arch Linux是一款简洁优雅的GNU/Linux发行版，采用滚动升级的形�
    Arch 的哲学：Keep It Simple, Stupid
 
 Cinnamon是一款很适合上手的Linux桌面，桌面布局类似GNOME 2；然而，底层的技术又是基于GNOME Shell（GNOME 3）。目前Cinnamon是最流行的发行版LinuxMint的默认桌面环境。
-<!--more-->
+<!-- more -->
 
 ---
 # 安装准备
