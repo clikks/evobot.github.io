@@ -131,3 +131,12 @@ symbols_count_time:
   time: true
   total_symbols: true
   total_time: false
+
+
+# git-backup
+backup:
+    type: git
+    theme: next6
+    repository:
+       github: git@github.com:clikks.github.io.git,hexo
+       #gitcafe: git@github.com:xxx/xxx.git,branchName
