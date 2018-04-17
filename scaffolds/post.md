@@ -5,5 +5,4 @@ categories:
 tags:
 author: Evobot
 image:
-photo:
 ---
