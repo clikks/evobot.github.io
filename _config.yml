@@ -5,7 +5,7 @@
 # Site
 title: Evobot's Blog
 subtitle: Record & Growth
-description: EVOBOT.CN is a blog to record my learning and growth
+description: 当你知道自己要去哪里的时候，全世界都会为你添堵...
 author: Evobot
 language: zh-CN
 timezone: Asia/Shanghai
@@ -133,15 +133,6 @@ symbols_count_time:
   time: true
   total_symbols: true
   total_time: false
-
-
-# git-backup
-backup:
-    type: git
-    theme: next6
-    repository:
-       github: git@github.com:clikks.github.io.git,hexo
-       #gitcafe: git@github.com:xxx/xxx.git,branchName
 
 # hexo-neat压缩
 neat_enable: true
@@ -331,7 +322,7 @@ theme_config:
 
   pangu: true
 
-  baidu_analytics: ccd23eafd789d101f639fcda47feadf0
+  baidu_analytics: 5e65d331e18e5e85cadf4208eb90ebfd
 
   livere_uid: MTAyMC8zNDg3Ny8xMTQxNA==
 
@@ -375,7 +366,11 @@ theme_config:
     trigger: auto
     top_n_per_article: 1
     unescape: true
- 
+
+  bookmark:
+    enable: true
+    save: auto
+
   reading_progress:
     enable: true
     color: "#ff7600"
@@ -426,6 +421,8 @@ theme_config:
     han: https://cdn.bootcss.com/Han/3.3.0/han.min.css
 
     pangu: https://cdn.bootcss.com/pangu/3.3.0/pangu.min.js
+
+    bookmark: https://cdn.jsdelivr.net/gh/theme-next/theme-next-bookmark@latest/bookmark.min.js
 
     reading_progress: https://cdn.jsdelivr.net/gh/theme-next/theme-next-reading-progress@1.1/reading_progress.min.js
     
