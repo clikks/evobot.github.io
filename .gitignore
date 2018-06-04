@@ -2,6 +2,7 @@
 Thumbs.db
 *.log
 public/
+node_modules/
 .deploy*/
 _admin-config.yml
 .ipynb_checkpoints
