@@ -75,7 +75,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: next
+theme: next6.3
 
 # Extensions
 Plugins:
@@ -114,19 +114,6 @@ deploy:
     github: git@github.com:clikks/clikks.github.io.git,master
     gitee: git@gitee.com:evobot/evobot.git,master
     coding: git@git.coding.net:turbotig/turbotig.coding.me.git,coding-pages
-
-#hexo-admin
-#admin:
-#  username: lux
-#  password_hash: $2a$04$zxuHHIZ.t4kSKjrpUis9leZ4eCFHNyvRKzG5suLFkkkbApCErH7Jm
-#  secret: hello evobot
-  #deployCommand: ./admin_script/hexo-generate.sh
-  #  qiniuCfg:
-  #    imageslim: true
-  #    AccessKey: hn1CNkoJGcieN7jbD3b-QNbu_5vQmRCXfKpbO3Jv
-  #    SecretKey: X_i35r1GNyhils2pkyxs5iPDmmiJE4oFC3WQKEQw
-  #    BucketName: hexo-admin
-  #    bucketHost: p5qynomrl.bkt.clouddn.com
 
 # 字数统计
 symbols_count_time:
@@ -199,7 +186,7 @@ theme_config:
       enable: false
       version: false
 
-    #custom_text: Hosted by <a target="_blank" rel="external nofollow" href="https://pages.coding.me"><b>Coding Pages</b></a>
+    custom_text: Hosted by <a target="_blank" rel="external nofollow" href="https://pages.coding.me"><b>Coding Pages</b></a>
   canonical: true
 
   seo: true
@@ -237,7 +224,15 @@ theme_config:
   links_title: Links
   links_layout: block
 
-  avatar: /images/avatar.png
+  avatar: 
+    url: /images/avatar.png
+  # If true, the avatar would be dispalyed in circle. 
+    rounded: true
+  # The value of opacity should be choose from 0 to 1 to set the opacity of the avatar.
+    opacity: 1
+  # If true, the avatar would be rotated with the cursor.
+    rotated: false
+
 
   toc:
     enable: true
@@ -278,8 +273,12 @@ theme_config:
     wpm: 275
 
   codeblock:
-    border_radius: 4
-    copy_button: false
+    border_radius: 1
+    copy_button:
+      enable: true
+    # Show text copy result
+      show_result: true
+
 
   reward_comment: 坚持写作与技术分享，您的支持将鼓励我继续创作！
   wechatpay: /images/wechat_donate.png
