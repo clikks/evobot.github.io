@@ -10,7 +10,7 @@ image:
 
 
 
-![正则表达式](http://p5qynomrl.bkt.clouddn.com/1524663037714kppzgbbw.png?imageslim)
+![正则表达式](https://blogimage-1251925320.cos.ap-chengdu.myqcloud.com/regex.png)
 
 正则表达式又称为规则表达式，是用事先定义好的一些特定的字符、及这些特定字符的组合，组成一个“规则字符串”，这个“规则字符串”用来表达对字符串的一种过滤逻辑；掌握好正则对于编写shell脚本也会有很大的帮助。
 

@@ -41,7 +41,7 @@ image:
 
 - `chmod -R`，可以递归更改目录权限，使目录内的文件权限与目录相同；
 - chmod更改权限还可以写为`chmod u=rwx,g=r,o=r test.txt`的形式；
-- `chmod [ugoa][+-][rwx] test.txt`,其中"u","g","o"分别表示所有者，所属组，其他人，"a"表示所有，即[ugo]的权限均增减或减少。例如`chmod a+x test.txt`给所有者、所属组、其他人增加"x"权限,`chmod u+w test.txt`给所有者增加"w"权限。
+- `chmod [ugoa][+-][rwx] test.txt`,其中"u","g","o"分别表示所有者，所属组，其他人，"a"表示所有，即[ugo]的权限均增加或减少。例如`chmod a+x test.txt`给所有者、所属组、其他人增加"x"权限,`chmod u+w test.txt`给所有者增加"w"权限。
 
 ```bash
 [root@localhost ~]# chmod a+x test.txt 
@@ -101,6 +101,20 @@ drwxr-xr-x. 3 root root   15 10月 20 22:55 1
 -rw-r--r-- 1 root lux 9051 3月  27 23:40 test.txt
 ```
 
+- 使用`.`分隔所有者和所属组同样也可以对文件的所有者和所属组进行更改，如`chown .evobot secure.log`：
+
+```bash
+[root@evobot ~]# ll
+总用量 19148
+-rw------- 1 root root     1179 4月  27 00:02 secure.log
+
+[root@evobot ~]# chown .evobot secure.log
+
+[root@evobot ~]# ll
+总用量 19148
+-rw------- 1 root evobot     1179 4月  27 00:02 secure.log
+```
+
 - `chown`同样具有`-R`选项，可以在更改目录的所有者或所属组时，同时更改目录下的文件的所有者和所属组：
 
 ```bash
@@ -148,7 +162,7 @@ drwxrwxr-x 2 root root 4096 3月  28 22:08 evobot2
 
 ## 计算umask
 
-- 计算umask掩码所定义的文件和目录权限，是使用文件666，目录777权限去减去umask的权限，***注意并不是用数字权限减去umask，而是使用rwx形式相减！***
+- 计算umask掩码所定义的文件和目录权限，是使用文件666，目录777权限去减去umask的权限，**注意并不是用数字权限减去umask，而是使用rwx形式相减！**
 
   1. 例如umask更改为002，则目录权限为`rwxrwxrwx - -------w- = rwxrwxr-x`:
 
@@ -168,7 +182,7 @@ drwxrwxr-x 2 root root 4096 3月  28 22:08 evobot2
   [root@localhost ~]# ll umask_file.txt 
   -rw-rw-r--. 1 root root 0 10月 24 23:28 umask_file.txt
   ```
-  3. 当用权限位减去umask时，若权限位为“-”，umask为“r”或“w”或“x”，则相减后依旧为“-”，例如当umask为003时，文件的权限为`rw-rw-rw- - -------wx = rw-rw-r--`,"-"减去"x"依旧为"-"**,目录权限为`rwxrwxrwx - -------wx = rwxrwxr--`:
+  3. 当用权限位减去umask时，若权限位为“-”，umask为"r"或"w"或"x"，则相减后依旧为"-"，例如当umask为003时，文件的权限为`rw-rw-rw- - -------wx = rw-rw-r--`,"-"减去"x"依旧为"-",目录权限为`rwxrwxrwx - -------wx = rwxrwxr--`:
 
   ```bash
   [root@localhost ~]# umask 003
@@ -189,7 +203,7 @@ drwxrwxr-x 2 root root 4096 3月  28 22:08 evobot2
 
 ### 对文件附加权限
 
-1.  `chattr +a filename`给文件增加`a`权限，则文件可读可追加内容，不可删除，可移动、改名。
+1.  `chattr +a filename`给文件增加`a`权限，则文件可读可追加内容，不可删除，不可移动、改名。
 ```bash
 [root@localhost ~]# chattr +a files.ini 
 [root@localhost ~]# lsattr files.ini 
@@ -279,7 +293,7 @@ mv: 无法将"dirname/firstdir/" 移动至"dirname/third": 不允许的操作
 rm：是否删除目录 "dirname/firstdir/"？y
 rm: 无法删除"dirname/firstdir/": 不允许的操作
 ```
-2. `chattr +i dirname`给目录增加`i`权限，则目录无法删除、更名，增加文件和子目录，目录下的文件及子目录无法删除及更名，文件不能增加和删除内容。
+2. `chattr +i dirname`给目录增加`i`权限，则目录无法删除、更名、增加文件和子目录，目录下的文件及子目录无法删除及更名，文件不能增加和删除内容。
 ```bash
 [root@localhost ~]# chattr +i dirname/
 [root@localhost ~]# head -n2 >> dirname/files.ini 

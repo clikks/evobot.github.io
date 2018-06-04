@@ -5,7 +5,7 @@ categories: Centos7
 tags:
   - Linux
   - Centos
-image: 'http://file.itnpc.com/20160326/ebf2b6aa4ba3c9a5dc8786af949571a0.jpg'
+image:
 abbrlink: 8d187ebb
 date: 2018-04-26 21:13:33
 ---
@@ -16,7 +16,7 @@ date: 2018-04-26 21:13:33
 
 sed的处理流程如下：
 
-![sed处理流程](http://file.itnpc.com/20160326/2564913fb397e0480a31dc4aeaee5a6b.png)
+![sed处理流程](https://blogimage-1251925320.cos.ap-chengdu.myqcloud.com/sed.png)
 
 1. 读入一行内容到模式空间(Pattern Space)
 2. 对模式空间里的内容执行sed命令

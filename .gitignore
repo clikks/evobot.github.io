@@ -7,3 +7,4 @@ public/
 .deploy*/
 _admin-config.yml
 .ipynb_checkpoints
+.python-version

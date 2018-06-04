@@ -74,3 +74,92 @@ code {
 img.img-topic {
     width: 100%;
 }
+
+// 时间轴样式
+.posts-collapse {
+    margin: 50px 0px;
+}
+@media (max-width: 1023px) {
+    .posts-collapse {
+        margin: 50px 20px;
+    }
+}
+// 时间轴左边线条
+.posts-collapse::after {
+    margin-left: -2px;
+    background-image: linear-gradient(180deg,#f79533 0,#f37055 15%,#ef4e7b 30%,#a166ab 44%,#5073b8 58%,#1098ad 72%,#07b39b 86%,#6dba82 100%);
+}
+
+// 时间轴文章标题底部虚线
+.posts-collapse .post-header:hover {
+    border-bottom-color: rgb(161, 102, 171);
+}
+
+/*
+// 标签云页面
+.tag-cloud {
+    margin: -80px 50px 40px 50px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    background-color: rgb(255, 255, 255);
+    padding: 86px 36px 36px 36px;
+}
+*/
+.tag-cloud-title {
+    margin-bottom: 15px;
+}
+@media (max-width: 767px) {
+    .tag-cloud {
+        margin: -73px 15px 50px 15px;
+        padding: 86px 5px 36px 5px;
+    }
+}
+
+// 选中文字部分的样式
+::selection {
+    background-color: rgb(255, 241, 89);
+    color: #555;
+}
+
+// 标签云页面超链接样式（为emoji特设）
+.tag-cloud a {
+    border-bottom: 1px solid rgb(80, 115, 184);
+    text-decoration: none;
+}
+.tag-cloud a:hover {
+    border-bottom: 1px solid rgb(161, 102, 171);
+    text-decoration: none;
+}
+
+// tabs标签（为emoji特设）
+.post-body .tabs ul.nav-tabs li.tab a {
+    text-decoration: none;
+}
+
+// 图片下方标题设置（为emoji特设）
+a.fancybox{
+    text-decoration: none !important;
+}
+
+// 自定义的引用样式
+blockquote.question {
+    color: #555;
+    border-left: 4px solid rgb(16, 152, 173);
+    background-color: rgb(227, 242, 253);
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    margin-bottom: 20px;
+}
+// 自定义的数字块
+span#inline-toc {
+    display: inline-block;
+    border-radius: 80% 100% 90% 20%;
+    background-color: rgb(227, 242, 253);
+    color: #555;
+    padding: 0.05em 0.4em;
+    margin: 2px 5px 2px 0px;
+    line-height: 1.5;
+}
+// 自定义的文章摘要图片样式
+img.img-topic {
+    width: 100%;
+}
