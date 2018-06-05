@@ -22,7 +22,7 @@ install:
   - rm -rf node_modules
     #- rm -rf package-lock.json
   - npm cache clean --force
-    #- npm install nunjucks@3.1.2 --ignore-scripts
+  - npm install nunjucks@3.1.2 --ignore-scripts
   - npm install # 安装 package.json 中的插件
 
 script:
