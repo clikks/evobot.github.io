@@ -1,10 +1,11 @@
 ---
 title: LAMP架构介绍及MySQL安装
 author: Evobot
-categories: Centos7
+categories: LAMP
 tags:
   - Linux
   - Centos
+  - MySQL
 abbrlink: cd21d578
 date: 2018-05-23 22:02:16
 image:

@@ -1,10 +1,11 @@
 ---
 title: Apache配置防盗链及访问控制
 author: Evobot
-categories: Centos7
+categories: LAMP
 tags:
   - Linux
   - Centos
+  - Apache
 abbrlink: 7abd11c3
 date: 2018-05-31 22:00:58
 image:

@@ -2,8 +2,11 @@
 title: PHP扩展模块安装
 author: Evobot
 date: 2018-06-04 20:33:47
-categories: Centos7
-tags: [Linux, Centos, LAMP]
+categories: LAMP
+tags:
+  - Linux
+  - Centos
+  - PHP
 image:
 ---
 
@@ -134,5 +137,11 @@ image:
   ?>
   ```
 
+- 如果需要针对虚拟主机分别开启php短标签，则需要在虚拟主机的配置文件中增加如下形式的配置：
+
+  ```bash
+  php_admin_flag short_open_tag on
+  ```
+  
 - php.ini配置文件的详细介绍，可以参考链接：[http://blog.51cto.com/legolas/493917](http://blog.51cto.com/legolas/493917)。
 

@@ -1,10 +1,12 @@
 ---
 title: Apache配置PHP解析及Apache默认虚拟主机
 author: Evobot
-categories: Centos7
+categories: LAMP
 tags:
   - Linux
   - Centos
+  - Apache
+  - PHP
 abbrlink: 9c123af5
 date: 2018-05-28 20:51:29
 image:

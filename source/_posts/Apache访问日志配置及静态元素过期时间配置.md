@@ -1,10 +1,11 @@
 ---
 title: Apache访问日志配置及静态元素过期时间配置
 author: Evobot
-categories: Centos7
+categories: LAMP
 tags:
   - Linux
   - Centos
+  - Apache
 abbrlink: 8097d660
 date: 2018-05-30 21:12:11
 image:
@@ -122,6 +123,54 @@ image:
   - 可以看到生成了以日期为结尾的新的日志。
 
 - 然后还需要配置定时任务，定期删除过期的日志文件。
+
+- Apache的rotatelogs的语法为：`rotatelogs [-l] logfile [rotationtime [offset]] | [filesizeM]`，其中`-l`不加的话日志时间会和实际时间相差8小时，而logfile如果包含`%`，则会被视为strftime()格式的字符串，否则会加上以秒为单位的`.ssss`的后缀，时间都是表示新日志开始的时间，`rotationtime`则表示日志文件以秒为单位滚动的间隔时间，`offset`则是相对于UTC时间相缠得分钟数，如果省略，表示为0并且使用UTC时间，比如要指定与UTC时差为-5小时的当地时间，则参数应该为**-300**，单位为分钟；`filesizeM`是指以文件大小滚动，而不是按时间或时差滚动；
+
+- 如下两个例子，分别以天分割和以小时分割：
+
+  ```bash
+  #按每天分割
+  CustomLog "|bin/rotatelogs -l logs/access_%Y%m%d.log 86400" combined
+  
+  #按每小时分割
+  CustomLog "|bin/rotatelogs -l logs/access_%Y%m%d%H.log 3600" combined
+  ```
+
+- 除了使用rotatelogs，apache还可以使用`cronolog`进行日志分割，同样以小时和以天分割日志，例子如下：
+
+  ```bash
+  #按每天分割
+  CustomLog "|bin/cronolog logs/access_%Y%m%d.log" combined
+  
+  #按每小时分割
+  CustomLog "|bin/cronolog logs/access_%Y%m%d%h.log" combined
+  ```
+
+## 日志记录代理及真实ip
+
+- 默认配置中，log日志的格式为` LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined`，其中%h是访问者的ip地址，但是如果用户使用代理进行访问，那么这里的ip就会是代理机器的ip地址；
+
+- 为了将用户的真实辑器ip记录下来，可以将日志格式改成如下格式：
+
+  ```bash
+   LogFormat "%h %{X-FORWARDED-FOR}i %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
+  ```
+
+## 只记录指定URI日志
+
+- 如果需要apache只记录我们指定的URI的日志，如请求www.aaa.com/aa/...这样的地址才会记录日志，那么需要在httpd.conf或者相关的虚拟主机配置文件中添加如下内容：
+
+  ```bash
+  SetEnvIf Request_URI "^/aaa/.*" aaa-request
+  CustomLog "|/usr/local/apache/bin/rotatelogs -l /usr/local/apache/lgs/aaa-access_%Y%m%d.log 86400" combined env=aaa-request
+  ```
+
+  > 配置原理与不记录静态文件日志相同。
+
+## 记录客户端请求域名
+
+- 这里的请求域名不是指我们虚拟主机配置的ServerName，而是指类似*.abc.com这样的泛解析形式；
+- Apache的LogFormat的`%V`变量就可以记录用户请求的域名，更多关于LogFormat变量的设置信息，可以参考[Apache日志详解](http://blog.51cto.com/longlei/2095594)这篇博文。
 
 # 静态元素过期时间
 

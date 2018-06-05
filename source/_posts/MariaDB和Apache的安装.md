@@ -1,7 +1,7 @@
 ---
 title: MariaDB和Apache的安装
 author: Evobot
-categories: Centos7
+categories: LAMP
 tags:
   - Linux
   - Centos

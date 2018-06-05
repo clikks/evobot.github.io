@@ -1,10 +1,11 @@
 ---
 title: 安装PHP5及PHP7
 author: Evobot
-categories: Centos7
+categories: LAMP
 tags:
   - Linux
   - Centos
+  - PHP
 abbrlink: 75d64810
 date: 2018-05-28 09:23:45
 image:

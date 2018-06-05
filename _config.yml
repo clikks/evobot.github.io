@@ -112,7 +112,7 @@ deploy:
   type: git
   repo:
     github: git@github.com:clikks/clikks.github.io.git,master
-    gitee: git@gitee.com:evobot/evobot.git,master
+  # gitee: git@gitee.com:evobot/evobot.git,master
     coding: git@git.coding.net:turbotig/turbotig.coding.me.git,coding-pages
 
 # 字数统计

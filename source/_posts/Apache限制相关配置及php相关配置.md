@@ -3,8 +3,12 @@ title: Apache访问控制(2)及php相关配置
 author: Evobot
 abbrlink: 5d3ade62
 date: 2018-06-02 00:01:28
-categories: Centos7
-tags: [Linux, Centos]
+categories: LAMP
+tags:
+  - Linux
+  - Centos
+  - PHP
+  - Apache
 image:
 ---
 
