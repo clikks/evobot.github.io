@@ -19,7 +19,7 @@ before_install:
   - npm install -g hexo-cli # 安装 hexo
 
 install:
-    #- rm -rf node_modules
+  - rm -rf node_modules
     #- rm -rf package-lock.json
   - npm cache clean --force
     #- npm install nunjucks@3.1.2 --ignore-scripts
