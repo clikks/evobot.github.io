@@ -197,6 +197,128 @@ LAMP是Linux+Apache(httpd)+MySQL+PHP几种环境组成的一种架构，很多�
 
 - MySQL的引擎由`innodb`和`myisam`，`myisam`较为轻量。
 
+
+# MySQL5.5编译安装
+
+- 首先下载MySQL5.5.60源码包，[MySQL5.5.60下载地址](https://dev.mysql.com/get/Downloads/MySQL-5.5/mysql-5.5.60.tar.gz);
+
+- 解压源码包，创建mysql用户，然后安装编译需要的依赖包：
+  
+  ```bash
+  tar zxvf mysql-5.5.60.tar.gz
+  
+  cd mysql-5.5.60
+  
+  useradd -s /sbin/nologin -M mysql
+  
+  yum install -y cmake gcc gcc-c++ ncurses-devel bison
+  ```
+  > 如果编译过程中因为缺少依赖包出错，再安装了依赖包后，需要执行`rm -f CMakeCache.txt`删除编译缓存文件后再重新进行编译。
+  
+- 然后进行编译操作，默认情况下，mysql安装目录为`/usr/local/mysql`，数据目录为`/usr/local/mysql/data`，编译参数可以参照[MySQL Source-Configuration Options](https://dev.mysql.com/doc/refman/5.5/en/source-configuration-options.html)，编译过程如下：
+
+  ```bash
+  cmake -DCMAKE_INSTALL_PREFIX=/usr/local/mysql \
+  -DMYSQL_DATADIR=/mysql/data \
+  -DDEFAULT_CHARSET=utf8 \
+  -DDEFAULT_COLLATION=utf8_general_ci \
+  -DWITH_EXTRA_CHARSETS:STRING=all \
+  -DWITH_DEBUG=0 -DWITH_SSL=yes \
+  -DWITH_READLINE=1 \
+  -DENABLE_LOCAL_INFILE=1
+  
+  make && make install
+  ```
+
+- 编译完成后，进入安装目录，更改目录属主和属组，然后进行初始化安装，最后复制配置文件和启动脚本，执行下面的命令完成MySQL的安装：
+
+  ```bash
+  cd /usr/local/mysql
+  
+  ./scripts/mysql_install_db --user=mysql --datadir=/mysql/data
+  
+  cp support-files/my-medium.cnf /etc/my.cnf
+  
+  cp support-files/mysql.server /etc/init.d/mysqld
+  ```
+  
+- 最后，使用`/etc/init.d/mysqld start`即可启动MySQL服务。
+
+# MySQL5.7二进制包安装
+## 安装
+
+- 首先下载MySQL5.7.17二进制安装包，[下载链接](http://mirrors.sohu.com/mysql/MySQL-5.7/mysql-5.7.17-linux-glibc2.5-x86_64.tar.gz)；
+
+- 然后解压二进制包，并将解压出来的目录移动到/usr/local目录下更名为mysql:
+
+  ```bash
+  tar zxvf mysql-5.7.17-linux-glibc2.5-x86_64.tar.gz
+  
+  mv mysql-5.7.17-linux-glibc2.5-x86_64 /usr/local/mysql
+  ```
+  
+- 然后进行初始化操作：
+    
+  ```bash
+  mkdir -p /data/mysql
+  
+  cd /usr/local/mysql/
+  
+  ./bin/mysqld --initialize --user=mysql --datadir=/data/mysql/
+  ```
+  >这里成功执行后，会再最后一行打印MySQL的root账户的密码：
+  >`[Note] A temporary password is generated for root@localhost: CrG_3SlTYe3:`
+  
+- 然后生成密钥：
+    
+  ```bash
+  ./bin/mysql_ssl_rsa_setup --datadir=/data/mysql/
+  ```
+
+- 复制配置文件和启动脚本：
+
+  ```bash
+  cp support-files/my-default.cnf /etc/my.cnf
+  
+  cp support-files/mysql.server /etc/init.d/mysqld
+  ```
+
+- 接着修改`/etc/my.cnf`，配置basedir、datadir、port以及socket：
+
+  ```bash
+  basedir = /usr/local/mysql
+  datadir = /data/mysql
+  port = 3306
+  socket = /tmp/mysql.sock
+  ```
+  
+- 修改`/etc/init.d/mysqld`启动脚本，配置basedir和datadir：
+
+  ```bash
+  basedir=/usr/local/mysql
+  datadir=/data/mysql
+  ```
+
+- 完成后，即可使用`/etc/init.d/mysqld start`启动MySQL。
+
+## 修改root密码
+
+- 之前初始化安装时已经给出了root的密码，使用密码就能够登陆MySQL，登陆后需要重新修改密码：
+  
+  ```bash
+  /usr/local/mysql/bin/mysql -uroot -pCrG_3SlTYe3:
+  
+  //进入MySQL修改密码
+  mysql> set password=password('123456');
+  ```
+  
+- 如果忘记了初始化安装时的密码，可以修改my.cnf配置，在[mysqld]下面增加一行`skip-grant-tables`,然后重启MySQL服务，执行`/usr/local/mysql/bin/mysql -uroot`无密码登陆进MySQL中，然后在MySQL命令行内执行下面的命令：
+
+  ```bash
+  mysql> update mysql.user set authentication_string=password('112233') where user='root';
+  ```
+
+- 完成后，将my.cnf中的`skip-grant-tables`配置删除，重启MySQL服务即可使用新的密码登陆。
 ---
 
 

@@ -3,7 +3,6 @@ Thumbs.db
 *.log
 public/
 node_modules/
-package-lock.json
 .deploy*/
 _admin-config.yml
 .ipynb_checkpoints

@@ -1,12 +1,13 @@
 ---
 title: PHP扩展模块安装
 author: Evobot
-date: 2018-06-04 20:33:47
 categories: LAMP
 tags:
   - Linux
   - Centos
   - PHP
+abbrlink: 63e0f53d
+date: 2018-06-04 20:33:47
 image:
 ---
 
