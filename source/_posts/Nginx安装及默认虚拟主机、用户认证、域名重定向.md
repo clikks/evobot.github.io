@@ -562,4 +562,4 @@ image:
   Location: http://auth.evobot.cn/admin/index.html
   ```
 
-  
+> Nginx配置文件[nginx.conf详解](http://www.ha97.com/5194.html)。
