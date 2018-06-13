@@ -350,7 +350,7 @@ image:
   server
   {
       #default server表示指定为默认虚拟主机
-      listen 80 default server;
+      listen 80 default_server;
       server_name test.evobot.cn;
       index index.html index.htm index.php;
       root /data/wwwroot/default;
