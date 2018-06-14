@@ -37,7 +37,7 @@ image:
   useradd -s /sbin/nologin -M php-fpm
   
   ./configure --prefix=/usr/local/php-fpm \
-  --with-config-file-path=/usr/local/pgp-fpm/etc \
+  --with-config-file-path=/usr/local/php-fpm/etc \
   --enable-fpm \
   --with-fpm-user=php-fpm \
   --with-fpm-group=php-fpm \

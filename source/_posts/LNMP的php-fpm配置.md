@@ -308,12 +308,20 @@ image:
 
   ```bash
   php_admin_value[open_basedir]=/data/wwwroot/default:/tmp/
+  
   ```
 
   ```bash
   [root@evobot etc]# curl -x127.0.0.1:80 auth.evobot.cn/index.php
   No input file specified.
+  
+  [root@evobot etc]# cat ../var/log/php_error.log
+  [14-Jun-2018 09:11:26 UTC] PHP Warning:  Unknown: open_basedir restriction in effect. File(/data/wwwroot/test/index.php) is not within the allowed path(s): (/data/wwwroot/test2:/tmp/) in Unknown on line 0
+  [14-Jun-2018 09:11:26 UTC] PHP Warning:  Unknown: failed to open stream: Operation not permitted in Unknown on line 0
+  [14-Jun-2018 09:12:14 UTC] PHP Warning:  Unknown: open_basedir restriction in effect. File(/data/wwwroot/test/index.php) is not within the allowed path(s): (/data/wwwroot/test2:/tmp/) in Unknown on line 0
+  [14-Jun-2018 09:12:14 UTC] PHP Warning:  Unknown: failed to open stream: Operation not permitted in Unknown on line 0
   ```
+  > 如果出现日志无法记录的情况，要检查phpinfo中php.ini文件的位置，以及是否加载了php.ini配置文件。
 
 # php-fpm进程管理
 

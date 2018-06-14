@@ -284,12 +284,11 @@ image:
   ```bash
   location ~ \.php$
   {
-      include fastcgi_params;
-      fastcgi_pass unix:/tmp/php-fcgi.sock;
-      fastcgi_index index.php;
-      fastcgi_param SCRIPT_FILENAME /data/wwwroot/auth.evobot.cn$fastcgi_script
-  _name;
-      }
+    include fastcgi_params;
+    fastcgi_pass unix:/tmp/php-fcgi.sock;
+    fastcgi_index index.php;
+    fastcgi_param SCRIPT_FILENAME /data/wwwroot/auth.evobot.cn$fastcgi_script_name;
+  }
   ```
 
   > 其中`fastcgi_pass`表示php-fpm的socket地址，在**php-fpm.conf**中定义，如果这里socket地址错误，则会报502错误，并且在nginx_error.log显示如下信息：
