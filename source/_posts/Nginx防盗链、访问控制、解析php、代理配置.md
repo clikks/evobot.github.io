@@ -390,5 +390,194 @@ image:
 
   > 这里就是访问本机但是实际上代理到了www.apelearn.com站点。
 
+# Nginx常见502错误
+
+1. 配置错误。一般是`fastcgi_pass`后面的php-fpm的pool的socket路径配置错误，或者是ip:port错误；
+
+2. 资源耗尽。
+
+  - LNMP架构在处理php时，nginx直接调取后端php-fpm服务，如果nginx请求量偏高，而php-fpm又没有配置足够的子进程，那么php-fpm就会资源耗尽，一旦资源好近nginx找不到php-fpm就会出现502错误；
+
+  - 解决这种问题需要调整php-fpm.conf中的`pm.max_children`数值，使其增加，一般4G内存的机器，如果运行php-fpm和nginx,不运行mysql，可以设置为150，8G内存设置为300，以此类推；
+
+3. 使用socket方式的php-fpm，默认监听的socket文件权限为所有者只读，属組和其他用户没有任何权限，所以nginx的启动用户(配置的为nobody)就无法读取这个文件，所以导致502错误，这个问题可以在nginx的错误日志中发现；
+
+  - nginx的错误日志位于`/usr/local/nginx/logs/nginx_error.log`，在`/usr/local/nginx/conf/nginx.conf`中可以配置error_log，默认为crit，可以改为debug显示更全面的信息，但日志所占磁盘空间也会非常大；
+ 
+  - 解决这种权限错误的问题，可以在php-fpm的pool配置中，增加`listen.owner`和`listen.group`，配置如下：
+  
+  ```bash
+  [www]
+  listen = /tmp/www.sock
+  user = php-fpm
+  group = php-fpm
+  listen.owner = nobody    //定义属主
+  listen.group = nobody    //定义属组
+  pm = dynamic
+  pm.max_children = 50
+  pm.start_servers = 20
+  pm.min_spare_servers = 5
+  pm.max_spare_servers = 35
+  pm.max_requests = 500
+  rlimit_files = 1024
+  ```
+  > 配置完成后重启php-fpm即可，除了这种设置，还可以增加`listen.mode=666`这样的配置也可以解决问题。
+  
+# Nginx的location优先级
+
+- 在nginx配置文件中，location按照优先级排序主要有以下几种形式：
+  
+  - 精确匹配`location = /abc {}`；
+  - 匹配路径的前缀，如果找到就停止搜索`location ^~ /abc {}`；
+  - 不区分大小写的正则匹配`location ~* /abc {}`；
+  - 正则匹配`location ~ /abc {}`；
+  - 普通路径前缀匹配`location /abc {}`;
+  
+- 各个格式的配置如下：
+
+  ```bash
+  # 精确匹配 / ,主机名后面不能带任何字符串
+  location = /
+  {
+    [configuration A]
+  }
+  
+  # 地址以 / 开头，下面的规则会匹配所有请求，但正则和最长字符串会优先匹配
+  location / 
+  {
+    [configuration B]
+  }
+  
+  # 匹配任何以/documents/开头的地址，匹配符合以后，还要继续向下搜索
+  # 只有后面的正则表达式没有匹配时，这一条配置才会采用
+  location /documents/
+  {
+    [configuration C]
+  }
+  
+  location ~ /documents/ 
+  {
+    [configuration CB]
+  }
+  
+  # 匹配任何以/documents/开头的地址，匹配符合以后，还要继续向下搜索
+  # 只有后面的正则表达式没有匹配时，这一条配置才会采用
+  location ~ /documents/Abc
+  {
+    [configuration CC]
+  }
+  
+  # 匹配任何以/images/开头的地址，匹配符合以后，停止往下搜索正则并采用本条配置
+  location ^~/iamges/
+  {
+    [configuration D]
+  }
+  
+  # 匹配所有以gif,jpg或jpeg结尾的请求
+  # 但所以请求/images/下的图片会被上面的configuration D处理，因为^~ 匹配后到达不了这条正则
+  location ~* \.(gif|jpg|jpeg)$
+  {
+    [configuration E]
+  }
+  
+  # 字符匹配到/images/，继续往下会发现^~存在
+  location /images/ 
+  {
+    [configuration F]
+  }
+  
+  # 最长字符匹配到/images/abc，继续往下会发现^~存在
+  # F与G的放置顺序没有关系
+  location /images/abc
+  {
+    [configuration G]
+  }
+  
+  # 只有去掉configuration D才有效，先最长匹配configuration G开头的地址，继续向下搜索，匹配到这一条正则并采用
+  location ~ /images/abc/
+  {
+    [configuration H]
+  }
+  ```
+  
+- 对A-H配置执行的顺序分析如下：
+
+  1. 下面2个配置同时存在时：
+  
+  ```bash
+  location = / 
+  {
+    [configuration A]
+  }
+
+  location / 
+  {
+    [configuration B]
+  }
+  ```
+  - 此时A生效，因为`=/`优先级高于`/`；
+  
+  2. 下面3个配置同时存在时：
+  
+  ```bash
+  location  /documents/ 
+  {
+    [configuration C]
+  }
+
+  location ~ /documents/ 
+  {
+    [configuration CB]
+  }
+
+  location ~ /documents/abc 
+  {
+    [configuration CC]
+  }
+  ```
+  
+  - 当访问的url为/documents/abc/1.html，此时CC生效，首先CB优先级高于C，而CC更优先于CB，因为CC更加精准；
+  
+  3. 下面4个配置同时存在时：
+  
+  ```bash
+  location ^~ /images/
+  {
+    [configuration D]
+  }
+
+  location /images/ 
+  {
+    [configuration F]
+  }
+
+  location /images/abc
+  {
+    [configuration G ]
+  }
+
+  location ~ /images/abc/
+  {
+    [configuration H ]
+  }
+  ```
+  
+  - 当访问的链接为/images/abc/123.jpg时，此时D生效。虽然4个规则都能匹配到，但`^~`优先级是最高的。若`^~`不存在时，H优先，因为`~/images/ > /images/`，而/images/和/images/abc同时存在时，/images/abc优先级更高，因为后者更加精准
+
+  4. 下面两个配置同时存在时：
+  
+  ```bash
+  location ~* \.(gif|jpg|jpeg)$
+  {
+    [configuration E]
+  }
+
+  location ~ /images/abc/ 
+  {
+    [configuration H]
+  }
+  ```
+  
+  - 当访问的链接为/images/abc/123.jpg时，E生效。因为上面的规则更加精准。
 ---
 
