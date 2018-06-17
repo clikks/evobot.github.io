@@ -468,7 +468,7 @@ image:
   }
   
   # 匹配任何以/images/开头的地址，匹配符合以后，停止往下搜索正则并采用本条配置
-  location ^~/iamges/
+  location ^~ /iamges/
   {
     [configuration D]
   }

@@ -20,6 +20,7 @@ image:
 ---
 
 # PHP安装扩展模块
+## phpize安装扩展
 
 - 当PHP已经编译安装完成，但是由于实际需求需要增加新的模块，那么就需要使用PHP动态扩展模块的安装方式进行安装；
 
@@ -88,6 +89,16 @@ image:
   [root@evobot phpredis-develop]# /usr/local/php7/bin/php -m | grep redis
   redis
   ```
+
+## pecl安装扩展
+
+- 在php的安装目录下，还可以使用`pecl`命令来快速安装扩展，比如安装redis扩展模块，直接使用下面的命令即可完成扩展模块的安装：
+  
+  ```bash
+  /usr/local/omc/php/bin/pecl install redis
+  ```
+
+- 安装完成后，同样需要编辑php.ini文件，增加`extension=redis.so`配置。
 
 ---
 

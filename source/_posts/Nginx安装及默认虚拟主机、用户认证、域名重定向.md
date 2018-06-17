@@ -389,6 +389,39 @@ image:
 
 - **nginx的虚拟主机配置中如果没用default_server这句配置，那么nginx会将vhost目录中第一个配置作为默认虚拟主机，如a.conf。**
 
+# nginx root&alias文件路径配置
+
+- nginx指定文件路径的方式有`root`和`alias`两种方式，主要的区别在于nginx如何解释location后面的uri，这会使两者以不同的方式将请求映射到服务器文件上。
+
+- root的配置如下：
+  
+  ```bash
+  location ~ ^/weblogs/ {
+    root /data/weblogs/www.test.com;
+    autoindex on;
+    auth_basic  "Restricted";
+    auth_basic_user_file    passwd/weblogs;
+  }
+  ```
+  
+  - 如果一个请求的URI为`/weblogs/httplogs/www.test.com-access.log`，web服务器会返回服务器上`/data/weblogs/www.test.com/weblogs/httplogs/www.test.com-access.log`文件；
+  - root会根据完整的URI请求来进行路径的映射，即映射的本地路径是包含了location的匹配内容部分的；
+  
+- alias的配置如下：
+  
+  ```bash
+  location ^~ /binapp/ {
+    limit_conn limit 4;
+    limit_rate 200k;
+    internal;
+    alias /data/statics/bin/apps/;
+  }
+  ```
+  
+  - alias在映射时会将location后面的匹配内容路径丢弃，把当前匹配到的目录指向到指定的目录；
+  - 如一个请求的URI为`/binapp/a.test.com/favicon.jpg`，web服务器将会映射到本地的`/data/statics/bin/apps/a.test.com/favicon.jpg`文件；
+  - alias在配置时，目录名后面必须要加上`/`；并且alias只能在location块中配置。
+
 # Nginx用户认证
 
 ## 站点用户认证

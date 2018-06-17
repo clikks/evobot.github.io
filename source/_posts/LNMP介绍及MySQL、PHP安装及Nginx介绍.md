@@ -25,7 +25,7 @@ image:
 
 # MySQL、PHP安装
 
-- MySQL的安装与LNMP中MySQL的安装相同，这里不再演示；
+- MySQL的安装与LAMP中MySQL的安装相同，这里不再演示,可以查看博文[LAMP 架构介绍及 MySQL 安装](https://www.evobot.cn/post/cd21d578.html)；
 
 - PHP的安装与LAMP不同，需要开启php-fpm服务；
 

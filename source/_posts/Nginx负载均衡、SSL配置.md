@@ -17,6 +17,8 @@ image:
 
 # Nginx负载均衡
 
+## 负载均衡配置
+
 - 实际上负载均衡就是对代理的运用，代理一台web服务器成为代理，而代理多台服务器，则成为负载均衡，负载均衡能够在多台服务器中有一台down掉无法提供服务时，将请求发给其他的服务器,nginx配置负载均衡需要使用`upstream`模块；
 
 - 安装`bind-utils`软件包，使用其提供的`dig`命令，如`dig qq.com`，命令会返回域名的ip地址：
@@ -73,6 +75,81 @@ image:
 - 重新加载配置后，使用`curl -x127.0.0.1:80 www.qq.com`访问本机就可以访问到qq.com的主页；
 
 - 还需要注意的是，nginx不支持代理https，即代理443端口，如果要实现https，只能让nginx监听443端口，配置为https，然后负载均衡的后端服务器则监听80端口，这样的方式实现https。
+
+## 根据请求uri进行代理
+
+- 加入一个需求为使用一台Nginx代理4台Apache服务器，并且是根据不同的uri，代理到不同的服务器上，那么需要的配置如下：
+
+```bash
+upstream aa.com {
+  server 192.168.0.121;
+  server 192.168.0.122;
+}
+
+upstream bb.com {
+  server 192.168.0.123;
+  server 192.168.0.124;
+}
+
+server {
+  listen    80;
+  server_name   www.abc.com;
+  location ~ aa.php {
+    proxy_pass http://aa.com/;
+    proxy_set_header Host   $host;
+    proxy_set_header X-Real-IP  $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+  }
+  
+  location ~ bb.php {
+    proxy_pass http://bb.com/;
+    proxy_set_header Host   $host;
+    proxy_set_header X-Real-IP  $remote_addr;
+    proxy_set_header X-Forwarded-For    $proxy_add_x_forwarded_for;
+  }
+}
+```
+
+## 根据访问目录代理
+
+- 如用户请求目录`/aaa/`时，需要将请求发送到a机器，而请求目录为`/bbb/`时，则把请求发送到b机器，其余请求同样发送到b机器，那么nginx的配置如下：
+
+  ```bash
+  upstream aaa.com {
+    server 192.168.111.6;
+  }
+  
+  upstream bbb.com {
+    server 192.168.111.20;
+  }
+  
+  server {
+    listen 80;
+    server_name li.com;
+    
+    location /aaa/ {
+      proxy_pass http://aaa.com/aaa/;
+      proxy_set_header Host $host;
+      proxy_set_header X-Real-IP    $remote_addr;
+      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+    
+    location /bbb/ {
+      proxy_pass http://bbb.com/bbb/;
+      proxy_set_header Host $host;
+      proxy_set_header X-Real-IP    $remote_addr;
+      proxy_set_header X-Forwarede-For  $proxy_add_x_forwarded_for;
+    }
+    
+    location / {
+      proxy_pass http://bbb.com/;
+      proxy_set_header Host $host;
+      proxy_set_header X-Real-IP    $remote_addr;
+      proxy_set_header X-Forwarded-For  $proxy_add_x_forwarded_for;
+    }
+  }
+  ```
+  > 这里的`location /bbb/`可以省略，因为后面的`location /`已经包含了/bbb/。
 
 # SSL配置
 
