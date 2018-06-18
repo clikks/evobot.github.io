@@ -403,7 +403,6 @@ image:
     auth_basic_user_file    passwd/weblogs;
   }
   ```
-  
   - 如果一个请求的URI为`/weblogs/httplogs/www.test.com-access.log`，web服务器会返回服务器上`/data/weblogs/www.test.com/weblogs/httplogs/www.test.com-access.log`文件；
   - root会根据完整的URI请求来进行路径的映射，即映射的本地路径是包含了location的匹配内容部分的；
   
@@ -417,7 +416,6 @@ image:
     alias /data/statics/bin/apps/;
   }
   ```
-  
   - alias在映射时会将location后面的匹配内容路径丢弃，把当前匹配到的目录指向到指定的目录；
   - 如一个请求的URI为`/binapp/a.test.com/favicon.jpg`，web服务器将会映射到本地的`/data/statics/bin/apps/a.test.com/favicon.jpg`文件；
   - alias在配置时，目录名后面必须要加上`/`；并且alias只能在location块中配置。

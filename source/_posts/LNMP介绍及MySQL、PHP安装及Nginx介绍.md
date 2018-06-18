@@ -65,7 +65,7 @@ image:
   make && make install
   ```
 
-  > 可能会产生报错需要安装libcurl-devel。
+  > 可能会产生报错需要安装libcurl-devel，openssl-devel。
 
 - 安装完成后进入php-fpm目录，其中在sbin目录下有一个php-fpm执行文件，这个文件和bin/php同样都可以执行`-i`、`-m`选项查看php信息和模块信息，但是php-fpm可以使用`-t`选项来测试php配置文件是否正确：
 

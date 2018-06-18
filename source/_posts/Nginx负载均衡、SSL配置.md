@@ -80,35 +80,35 @@ image:
 
 - 加入一个需求为使用一台Nginx代理4台Apache服务器，并且是根据不同的uri，代理到不同的服务器上，那么需要的配置如下：
 
-```bash
-upstream aa.com {
-  server 192.168.0.121;
-  server 192.168.0.122;
-}
-
-upstream bb.com {
-  server 192.168.0.123;
-  server 192.168.0.124;
-}
-
-server {
-  listen    80;
-  server_name   www.abc.com;
-  location ~ aa.php {
-    proxy_pass http://aa.com/;
-    proxy_set_header Host   $host;
-    proxy_set_header X-Real-IP  $remote_addr;
-    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+  ```bash
+  upstream aa.com {
+    server 192.168.0.121;
+    server 192.168.0.122;
   }
-  
-  location ~ bb.php {
-    proxy_pass http://bb.com/;
-    proxy_set_header Host   $host;
-    proxy_set_header X-Real-IP  $remote_addr;
-    proxy_set_header X-Forwarded-For    $proxy_add_x_forwarded_for;
+
+  upstream bb.com {
+    server 192.168.0.123;
+    server 192.168.0.124;
   }
-}
-```
+
+  server {
+    listen    80;
+    server_name   www.abc.com;
+    location ~ aa.php {
+      proxy_pass http://aa.com/;
+      proxy_set_header Host   $host;
+      proxy_set_header X-Real-IP  $remote_addr;
+      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+
+    location ~ bb.php {
+      proxy_pass http://bb.com/;
+      proxy_set_header Host   $host;
+      proxy_set_header X-Real-IP  $remote_addr;
+      proxy_set_header X-Forwarded-For    $proxy_add_x_forwarded_for;
+    }
+  }
+  ```
 
 ## 根据访问目录代理
 

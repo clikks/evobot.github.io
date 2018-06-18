@@ -216,9 +216,7 @@ image:
   ./configure --prefix=/usr/local/php7 \
   --with-apxs2=/usr/local/apache2.4/bin/apxs \
   --with-config-file-path=/usr/local/php7/etc \
-  #--with-pdo-mysql=/usr/local/mysql \ //PHP7已更改为mysalnd
   --with-pdo-mysql=mysqlnd \
-  #--with-mysqli=/usr/local/mysql/bin/mysql_config \ //PHP7已更改为mysalnd
   --with-mysqli=mysqlnd \
   --with-libxml-dir \
   --with-gd \
@@ -236,6 +234,7 @@ image:
   --enable-sockets \
   --enable-exif
   ```
+  > `--with-pdo-mysql=/usr/local/mysql`和`--with-mysqli=/usr/local/mysql/bin/mysql_config`在PHP7已更改为mysqlnd，并且去掉了`--with-mysql`选项。
 
   ```bash
   make && make install
