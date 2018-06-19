@@ -14,6 +14,8 @@ image:
 
 本文主要介绍MySQL的常用操作，比如怎样更改MySQL的root密码，怎样连接MySQL，以及MySQL的常用的一些命令。
 
+<!--more-->
+
 ---
 
 # 更改root密码
