@@ -246,7 +246,7 @@ image:
 
   ```
 
-- 在数据库中创建表：```create table tb_name(`id` int(4), `name` char(40));```
+- 在数据库中创建表：`create table tb_name(\`id\` int(4), \`name\` char(40));`
 
   ```sql
   mysql> use evobot
@@ -277,7 +277,7 @@ image:
 
   ```
 
-  > 这里可以看到表的ENGINE为InnoDB，字符为latin1，如果想指定表的ENGINE和字符集，在创建表时，使用```create table t1(`id` int(4), `name` char(40)) ENGINE=InnoDB DEFAULT CHARSET=utf8;```
+  > 这里可以看到表的ENGINE为InnoDB，字符为latin1，如果想指定表的ENGINE和字符集，在创建表时，使用`create table t1(\`id\` int(4), \`name\` char(40)) ENGINE=InnoDB DEFAULT CHARSET=utf8;`
 
   - 关于MySQL的myisam和innodb引擎的优劣，可以查看这篇博文：[MySQL存储引擎MyISAM与InnoDB的优劣](https://www.pureweber.com/article/myisam-vs-innodb/)
 
