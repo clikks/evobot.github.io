@@ -1,9 +1,13 @@
 ---
 title: Nginx日志配置
 author: Evobot
-date: 2018-06-09 01:50:51
 categories: LNMP
-tags: [Linux, Centos, Nginx]
+tags:
+  - Linux
+  - Centos
+  - Nginx
+abbrlink: 54f376c7
+date: 2018-06-09 01:50:51
 image:
 ---
 

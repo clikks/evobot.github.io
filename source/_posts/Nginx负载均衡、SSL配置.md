@@ -1,9 +1,13 @@
 ---
 title: Nginx负载均衡、SSL配置
 author: Evobot
-date: 2018-06-12 01:11:45
 categories: LNMP
-tags: [Linux, Centos, Nginx]
+tags:
+  - Linux
+  - Centos
+  - Nginx
+abbrlink: ebec8c28
+date: 2018-06-12 01:11:45
 image:
 ---
 

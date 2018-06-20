@@ -1,9 +1,13 @@
 ---
 title: Nginx安装及默认虚拟主机、用户认证、域名重定向
 author: Evobot
-date: 2018-06-07 22:56:29
 categories: LNMP
-tags: [Linux, Centos, Nginx]
+tags:
+  - Linux
+  - Centos
+  - Nginx
+abbrlink: 1785e4e8
+date: 2018-06-07 22:56:29
 image:
 ---
 

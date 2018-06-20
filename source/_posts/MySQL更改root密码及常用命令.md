@@ -1,12 +1,13 @@
 ---
 title: MySQL更改root密码及常用命令
 author: Evobot
-date: 2018-06-19 21:32:22
 categories: MySQL
-tags: 
+tags:
   - Linux
   - MySQL
   - Centos
+abbrlink: f70c6e4b
+date: 2018-06-19 21:32:22
 image:
 ---
 
@@ -246,8 +247,11 @@ image:
 
   ```
 
-- 在数据库中创建表：`create table tb_name(\`id\` int(4), \`name\` char(40));`
-
+- 在数据库中创建表，使用如下命令
+  ```sql
+  create table tb_name(`id` int(4), `name` char(40));
+  ```
+  示例：
   ```sql
   mysql> use evobot
   Database changed
@@ -277,7 +281,11 @@ image:
 
   ```
 
-  > 这里可以看到表的ENGINE为InnoDB，字符为latin1，如果想指定表的ENGINE和字符集，在创建表时，使用`create table t1(\`id\` int(4), \`name\` char(40)) ENGINE=InnoDB DEFAULT CHARSET=utf8;`
+  - 这里可以看到表的ENGINE为InnoDB，字符为latin1，如果想指定表的ENGINE和字符集，在创建表时，使用下面的命令：
+  
+  ```sql
+  create table t1(`id` int(4), `name` char(40)) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  ```
 
   - 关于MySQL的myisam和innodb引擎的优劣，可以查看这篇博文：[MySQL存储引擎MyISAM与InnoDB的优劣](https://www.pureweber.com/article/myisam-vs-innodb/)
 

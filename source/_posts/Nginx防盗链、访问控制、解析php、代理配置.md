@@ -1,9 +1,13 @@
 ---
 title: Nginx防盗链、访问控制、解析php、代理配置
 author: Evobot
-date: 2018-06-10 22:53:03
 categories: LNMP
-tags: [Linux, Centos, Nginx]
+tags:
+  - Linux
+  - Centos
+  - Nginx
+abbrlink: 5897d233
+date: 2018-06-10 22:53:03
 image:
 ---
 

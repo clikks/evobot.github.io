@@ -1,9 +1,13 @@
 ---
 title: LNMP的php-fpm配置
 author: Evobot
-date: 2018-06-13 20:56:25
 categories: LNMP
-tags: [Linux, Centos, PHP]
+tags:
+  - Linux
+  - Centos
+  - PHP
+abbrlink: 7e9a2eda
+date: 2018-06-13 20:56:25
 image:
 ---
 

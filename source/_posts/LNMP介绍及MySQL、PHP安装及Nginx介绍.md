@@ -1,9 +1,12 @@
 ---
 title: LNMP介绍及MySQL、PHP安装及Nginx介绍
 author: Evobot
-date: 2018-06-06 21:51:33
 categories: LNMP
-tags: [Linux, Centos]
+tags:
+  - Linux
+  - Centos
+abbrlink: 4c35e4dd
+date: 2018-06-06 21:51:33
 image:
 ---
 
