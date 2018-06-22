@@ -12,7 +12,7 @@ image:
 
 
 
-本文介绍了exportfs命令
+本文介绍了exportfs命令管理nfs配置文件，以及NFS4版本中存在的用户权限问题，最后一部分则是FTP服务的介绍、以及如何使用vsftpd软件包搭建ftp服务。
 
 <!--more-->
 
@@ -227,14 +227,14 @@ image:
 
 10. 然后启动vsftpd服务：
 
-    ```bash
-    [root@localhost ~]# systemctl start vsftpd
-    [root@localhost ~]# ps aux| grep vsftpd
-    root       2904  0.0  0.1  53260   576 ?        Ss   00:33   0:00 /usr/sbin/vsftpd /etc/vsftpd/vsftpd.conf
+   ```bash
+   [root@localhost ~]# systemctl start vsftpd
+   [root@localhost ~]# ps aux| grep vsftpd
+   root       2904  0.0  0.1  53260   576 ?        Ss   00:33   0:00 /usr/sbin/vsftpd /etc/vsftpd/vsftpd.conf
 
-    [root@localhost ~]# netstat -tlnp | grep vsftpd
-    tcp6       0      0 :::21                   :::*                    LISTEN      2904/vsftpd  
-    ```
+   [root@localhost ~]# netstat -tlnp | grep vsftpd
+   tcp6       0      0 :::21                   :::*                    LISTEN      2904/vsftpd  
+   ```
 
 ## 测试vsftpd服务
 
