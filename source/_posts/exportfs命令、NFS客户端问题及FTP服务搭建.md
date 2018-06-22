@@ -144,7 +144,7 @@ image:
   mkdir /etc/vsftpd/vsftpd_user_conf
   ```
 
-6. 在`vsftp_user_conf`目录下创建与==虚拟用户同名==的配置文件：
+6. 在`vsftp_user_conf`目录下创建与**虚拟用户同名**的配置文件：
 
    ```bash
    touch /etc/vsftpd/vsftpd_user_conf/evobot
@@ -209,9 +209,9 @@ image:
 
 9. 最后编辑vsftpd的主配置文件`/etc/vsftpd/vsftpd.conf`：
 
-   - 将==anonymous_enable=YES==改为NO；
-   - 将==#anon_upload_enable=YES==改为**anon_upload_enable=NO**;
-   - 将==#anon_mkdir_write_enable=YES==改为**anon_mkdir_write_enable=NO**
+   - 将***anonymous_enable=YES***改为NO；
+   - 将***#anon_upload_enable=YES***改为**anon_upload_enable=NO**;
+   - 将***#anon_mkdir_write_enable=YES***改为**anon_mkdir_write_enable=NO**
    - 然后增加以下内容：
 
    ```bash
@@ -227,14 +227,14 @@ image:
 
 10. 然后启动vsftpd服务：
 
-   ```bash
-   [root@localhost ~]# systemctl start vsftpd
-   [root@localhost ~]# ps aux| grep vsftpd
-   root       2904  0.0  0.1  53260   576 ?        Ss   00:33   0:00 /usr/sbin/vsftpd /etc/vsftpd/vsftpd.conf
+  ```bash
+  [root@localhost ~]# systemctl start vsftpd
+  [root@localhost ~]# ps aux| grep vsftpd
+  root       2904  0.0  0.1  53260   576 ?        Ss   00:33   0:00 /usr/sbin/vsftpd /etc/vsftpd/vsftpd.conf
 
-   [root@localhost ~]# netstat -tlnp | grep vsftpd
-   tcp6       0      0 :::21                   :::*                    LISTEN      2904/vsftpd  
-   ```
+  [root@localhost ~]# netstat -tlnp | grep vsftpd
+  tcp6       0      0 :::21                   :::*                    LISTEN      2904/vsftpd  
+  ```
 
 ## 测试vsftpd服务
 
