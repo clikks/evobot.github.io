@@ -465,3 +465,29 @@ image:
 
 - 恢复备份的数据表，与恢复数据库相同，指定数据库名即可；
 
+
+## innobackex备份工具
+
+### 安装
+
+- mysqldump只适合备份数据量小的数据库和表，一旦数据量大，则不再使用mysqldump，而是使用`xtrbackup`或`innobackex`这两个工具；
+
+- xtrbackup只能用于备份innodb引擎的数据库，而innobackex 既可以备份innodb引擎的数据库，也可以备份myisam引擎的数据库。备份时也可分为全量备份和增量备份。
+
+- 使用innobackex，需要先安装`percona-release`扩展源：
+
+  ```bash
+  rpm -ivh http://www.percona.com/downloads/percona-release/redhat/0.1-3/percona-release-0.1-3.noarch.rpm
+  ```
+
+- 然后安装`percona-xtrbackup`软件包：
+
+  ```bash
+  yum install percona-xtrabackup
+  ```
+
+### 全量备份
+
+1. 首先创建并授权备份用户
+
+   为了保证安全，备份用户不授予all权限，而是只给予reload
