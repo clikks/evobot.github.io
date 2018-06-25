@@ -8,10 +8,11 @@ tags:
   - pure-ftpd
   - Linux
 image:
-
 ---
 
 
+
+本文介绍了xshell中的xftp软件的使用，即sftp工具，另外则介绍如何使用pure-ftpd搭建FTP服务。
 
 <!--more-->
 

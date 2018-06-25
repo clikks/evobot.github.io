@@ -12,7 +12,7 @@ image:
 
 
 
-本文主要介绍MySQL的用户管理、常用的SQL语句，以及如何进行数据库的备份和恢复作业。
+本文主要介绍MySQL的用户管理、常用的SQL语句，以及如何使用mysqldump进行数据库的备份和恢复作业，另外介绍了innobackupex工具的使用，这个工具能够进行MySQL数据库的全量与增量备份，并且备份速度更快。
 
 <!--more-->
 
@@ -348,7 +348,7 @@ image:
   mysqldump -uroot -p evobot test1 > /tmp/tb_test1.sql
   ```
 
-- 备份所以的数据库，使用命令`mysqldump -uroot -p -A /path/to/bak.sql`：
+- 备份有的数据库，使用命令`mysqldump -uroot -p -A /path/to/bak.sql`：
 
   ```bash
   mysqldump -uroot -p -A > /tmp/mysql_A.sql
@@ -470,17 +470,17 @@ image:
 
 ### 安装
 
-- mysqldump只适合备份数据量小的数据库和表，一旦数据量大，则不再使用mysqldump，而是使用`xtrbackup`或`innobackex`这两个工具；
+- mysqldump只适合备份数据量小的数据库和表，一旦数据量大，则不再使用mysqldump，而是使用`xtrbackup`或`innobackupex`这两个工具；
 
-- xtrbackup只能用于备份innodb引擎的数据库，而innobackex 既可以备份innodb引擎的数据库，也可以备份myisam引擎的数据库。备份时也可分为全量备份和增量备份。
+- xtrbackup只能用于备份innodb引擎的数据库，而innobackupex 是在xtrbackup基础上增加的工具，既可以备份innodb引擎的数据库，也可以备份myisam引擎的数据库。备份时也可分为全量备份和增量备份。
 
-- 使用innobackex，需要先安装`percona-release`扩展源：
+- 使用innobackupex，需要先安装`percona-release`扩展源：
 
   ```bash
   rpm -ivh http://www.percona.com/downloads/percona-release/redhat/0.1-3/percona-release-0.1-3.noarch.rpm
   ```
 
-- 然后安装`percona-xtrbackup`软件包：
+- 然后安装`percona-xtrbackup`软件包，mysql5.7版本需要使用percona-xtrabackup2.4以上版本：
 
   ```bash
   yum install percona-xtrabackup
@@ -488,6 +488,200 @@ image:
 
 ### 全量备份
 
-1. 首先创建并授权备份用户
+1. 首先创建并授权备份用户，为了保证安全，备份用户不授予all权限，而是只给予RELOAD，LOCK TABLES，REPLICATION CLIENT，PROCESS四个权限：
 
-   为了保证安全，备份用户不授予all权限，而是只给予reload
+   ```sql
+   GRANT RELOAD,LOCK TABLES,PROCESS,REPLICATION CLIENT ON *.* TO 'bakuser'@'localhost' identified by '123456';
+
+   FLUSH PRIVILEGES;
+   ```
+
+2. 接着创建保存备份的目录：
+
+   ```bash
+   $ mkdir /data/backup
+   ```
+
+3. 完成后就可以使用`innobackup`命令进行备份，备份为全量备份，命令如下：
+
+   ```bash
+   $ innobackupex --defaults-file=/etc/my.cnf --user=bakuser --password='123456' -S /tmp/mysql.sock /data/backup/
+   ```
+
+   - 其中`--default-file`是指定mysql的配置文件my.cnf所在位置，这个选项必须紧跟在命令后面作为第一个选项；
+   - `--user`和`--password`则是上一步在mysql中创建的备份用户的用户名和密码；
+   - `-S`则是指定mysql的socket所在路径；
+   - 最后再指定备份保存的路径即可；其余选项如指定端口等，可以查看innobackupex的帮助文档 。
+
+4. 备份完成后，会在指定的备份目录中生成以备份时间命名的目录：
+
+   ```bash
+   $ ls
+   2018-06-25_23-00-40
+   $ ls 2018-06-25_23-00-40/
+   backup-my.cnf   ibdata1  performance_schema  xtrabackup_checkpoints  xtrabackup_logfile
+   ib_buffer_pool  mysql    sys                 xtrabackup_info
+   ```
+
+###  全量备份恢复
+
+1. 恢复已经备份的数据库，需要先停止MySQL服务，然后将原有的MySQL数据目录重命名保存，并重新创建数据目录同时更改属主和属组为mysql：
+
+   ```bash
+   $ mv /data/mysql/ /data/mysql.bak
+   $ mkdir /data/mysql
+   $ chown -R mysql.mysql /data/mysql
+   $ ls -ld /data/mysql
+   drwxr-xr-x. 2 mysql mysql 6 6月  25 23:11 /data/mysql
+
+   ```
+
+2. 仍然使用`innobackupex`进行恢复操作，命令如下：
+
+   ```bash
+   $ innobackupex --use-memory=512M --apply-log /data/backup/2018-06-25_23-00-40/
+
+   ```
+
+   - `--use-memory`选项是指定回复时使用的内存大小，一般指定的内存越大，恢复速度越快；
+   - `--apply-log`则是指定备份的所在路径，即前面备份时以时间命令的目录路径。
+
+3. 完成恢复到MySQL操作：
+
+   ```bash
+   $ innobackupex --default-file=/etc/my.cnf --copy-back /data/backup/2018-06-25_23-00-40/ 
+
+   ```
+
+   - 同样需要指定MySQL配置文件所在路径，并且使用`--copy-back`选项指定备份所在路径，同时，这里省略了`--use-memory`选项，需要的时候可以加上这个选项。
+
+4. 最后重新更改数据库目录权限即可启动MySQL服务：
+
+   ```bash
+   $ chown -R mysql.mysql /data/mysql
+   ```
+
+   ​
+
+### 增量备份
+
+1. 增量备份需要在全量备份的基础上进行，我们首先安装全量备份的操作，进行一次全量备份，然后再对数据库进行一些操作，如新增数据库表，可以[MySQL官方仓库](https://github.com/datacharmer/test_db/archive/master.zip)下载测试数据库然后导入到MySQL中：
+
+  ```bash
+  $ innobackupex --default-file=/etc/my.cnf --user=bakuser --password='123456' -S /tmp/mysql.sock /data/backup/
+
+  $ mysql -uroot -p < employees.sql
+  ```
+
+2. 首先进行第一次增量备份操作：
+
+  ```bash
+  $ innobackupex --default-file=/etc/my.cnf --user=bakuser --password='123456' -S /tmp/mysql.sock --incremental /data/backup/ --incremental-basedir=/data/backup/2018-06-25_23-00-40/
+  ```
+
+  - `--incremental`选项指定备份存放路径，`--incremental-basedir`则是指定首次全量备份存放的以时间命名的目录，这是因为我们的增量是在指定的全量备份基础上进行的备份；
+  - 第一次增量备份的文件夹为`2018-06-25_23-41-08`；
+
+3. 再对数据库进行一些操作，以便进行第二次增量备份：
+
+  ```bash
+  $ mysql -uroot -p -e "create database testdb"
+
+  $ mysql -uroot -p testdb < /root/123.sql 
+  ```
+
+4. 进行第二次增量备份：
+
+  ```bash
+  $ innobackupex --default-file=/etc/my.cnf --user=bakuser --password='123456' -S /tmp/mysql.sock --incremental /data/backup/ --incremental-basedir=/data/backup/2018-06-25_23-41-08/
+
+  ```
+
+  - 需要注意，第二次增量备份指定的`incremental-basedir`不再是全量备份目录，而是第一次增量备份的目录；
+
+5. 我们查看三次备份目录中的`xtrabackup_checkpoints`文件：
+
+   ```bash
+   $ cat 2018-06-25_23-00-40/xtrabackup_checkpoints 
+   backup_type = full-prepared
+   from_lsn = 0
+   to_lsn = 2559852
+   last_lsn = 2559861
+   compact = 0
+   recover_binlog_info = 0
+
+   $ cat 2018-06-25_23-41-08/xtrabackup_checkpoints 
+   backup_type = incremental
+   from_lsn = 2559852
+   to_lsn = 293401900
+   last_lsn = 293401909
+   compact = 0
+   recover_binlog_info = 0
+
+   $ cat 2018-06-25_23-54-25/xtrabackup_checkpoints 
+   backup_type = incremental
+   from_lsn = 293401900
+   to_lsn = 321030299
+   last_lsn = 321030308
+   compact = 0
+   recover_binlog_info = 0
+
+   ```
+
+   - 这个文件中，全量备份的`from_lsn`为0，`to_lsn`则是第一次增量备份的`from_lsn`，这样三次备份的检查点就是连续的；
+   - 如果在第二次增量时，`incremental-basedir`指定的依然是全量备份，那么第一次增量备份就被跳过，在恢复时，就不再需要恢复第一次增量备份，可以根据需要选择增量的incremental-basedir。
+
+
+### 增量备份恢复
+
+1. 首先依然是停止MySQL服务，并且将原数据存储目录重命名保存，然后重新创建数据存储目录，并更改属主和属组为mysql；
+
+2. 然后与全量备份恢复不同的是，增量恢复需要将增量备份合并到全量备份中去：
+
+   ```bash
+   $ innobackupex --apply-log --redo-only /data/backup/2018-06-25_23-00-40/
+   ```
+
+   - 这里需要使用`--redo-only`参数，跟随的参数值是全量备份的路径，用来初始化全量备份，将增量备份合并逐步合并到全量备份中；
+
+3. 合并第一次增量备份：
+
+   ```bash
+   $ innobackupex --apply-log --redo-only /data/backup/2018-06-25_23-00-40/ --incremental-dir=/data/backup/2018-06-25_23-41-08/
+   ```
+
+   - `--redo-only`仍然指向全量备份，而`incremental-basedir`则指向第一次增量备份。
+
+4. 合并第二次增量备份
+
+   ```bash
+   $ innobackupex --apply-log /data/backup/2018-06-25_23-00-40/ --incremental-dir=/data/backup/2018-06-25_23-54-25/
+
+   ```
+
+   - 合并最后一次的增量备份则不需要使用`--redo-only`选项。
+
+5. 再次初始化全量备份，同样不再使用`--redo-only`选项：
+
+   ```bash
+   $ innobackupex --apply-log /data/backup/2018-06-25_23-00-40/
+   ```
+
+6. 最后与全量备份恢复一样，执行恢复数据库操作：
+
+   ```bash
+   $ innobackupex --default-file=/etc/my.cnf --copy-back /data/backup/2018-06-25_23-00-40/
+   ```
+
+   - 这里的`copy-back`指定的是全量备份，因为增量备份都已经合并到全量中去了。
+
+7. 更改权限然后启动MySQL服务：
+
+   ```bash
+   $ chown -R mysql.mysql /data/mysql
+   ```
+
+**恢复操作中，一旦出错，会导致全量备份数据污染，所以在执行恢复操作前，要将备份文件再拷贝一份另存，防止出现数据损毁。**
+
+---
+
