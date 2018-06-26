@@ -1,12 +1,13 @@
 ---
 title: MySQL用户管理、常用SQL语句及数据库备份与恢复
 author: Evobot
-date: 2018-06-20 20:52:32
 categories: MySQL
 tags:
   - Linux
   - Centos
   - MySQL
+abbrlink: c54c87e0
+date: 2018-06-20 20:52:32
 image:
 ---
 

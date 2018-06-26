@@ -1,15 +1,15 @@
 ---
 title: exportfs命令、NFS客户端问题及FTP服务搭建
 author: Evobot
-date: 2018-06-22 22:11:38
-categories: 
+categories:
   - NFS
   - FTP
 tags:
   - NFS
   - FTP
+abbrlink: 38114ae5
+date: 2018-06-22 22:11:38
 image:
-
 ---
 
 

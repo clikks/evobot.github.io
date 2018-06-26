@@ -1,13 +1,14 @@
 ---
 title: 安装jdk和Tomcat
 author: Evobot
-date: 2018-06-26 21:29:21
 categories: Tomcat
-tags: 
+tags:
   - Tomcat
   - jdk
   - Centos7
-image: https://blogimage-1251925320.cos.ap-chengdu.myqcloud.com/tomcat.png
+image: 'https://blogimage-1251925320.cos.ap-chengdu.myqcloud.com/tomcat.png'
+abbrlink: af3c490c
+date: 2018-06-26 21:29:21
 ---
 
 

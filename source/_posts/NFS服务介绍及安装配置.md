@@ -1,12 +1,13 @@
 ---
 title: NFS服务介绍及安装配置
 author: Evobot
-date: 2018-06-21 23:26:40
 categories: NFS
 tags:
   - Linux
   - Centos
   - NFS
+abbrlink: f352601c
+date: 2018-06-21 23:26:40
 image:
 ---
 

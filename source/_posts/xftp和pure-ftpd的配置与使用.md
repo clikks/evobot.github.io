@@ -1,12 +1,13 @@
 ---
 title: xftp和pure-ftpd的配置与使用
 author: Evobot
-date: 2018-06-24 21:23:34
 categories: FTP
-tags: 
+tags:
   - xftp
   - pure-ftpd
   - Linux
+abbrlink: 75c15ce8
+date: 2018-06-24 21:23:34
 image:
 ---
 
