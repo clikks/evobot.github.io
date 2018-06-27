@@ -70,7 +70,7 @@ table th:first-of-type {
           rewrite ^/(.*)$ http://auth.evobot.cn/$1 permanent;
       }
       #增加access_log配置，并指定日志路径以及日志格式名
-      access_log /tmp/access_auth.log combined_relip;
+      access_log /tmp/access_auth.log combined_realip;
   
       location ~ admin.html
       {
@@ -121,7 +121,7 @@ table th:first-of-type {
   /bin/kill -HUP `cat $nginx_pid`
   ```
 
-- 然后使用`sh +x /usr/local/sbin/nginx_logrotate.sh`命令执行脚本查看脚本是否能正确运行，`-x`选项为输出脚本执行的具体过程：
+- 然后使用`sh -x /usr/local/sbin/nginx_logrotate.sh`命令执行脚本查看脚本是否能正确运行，`-x`选项为输出脚本执行的具体过程：
 
   ```bash
   [root@evobot nginx]# sh -x /usr/local/sbin/nginx_log_rotate.sh
