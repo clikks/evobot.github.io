@@ -135,7 +135,7 @@ image:
 
 # mysql-proxy实现读写分离
 
-- 下载安装mysql-proxy:
+- 下载安装mysql-proxy,官方的mysql-proxy目前只能支持到MySQL5.7以下版本，5.7以上版本使用会出现登陆不了mysql-proxy的4040端口的情况:
 
   ```bash
   $ wget https://downloads.mysql.com/archives/get/file/mysql-proxy-0.8.5-linux-glibc2.3-x86-64bit.tar.gz
@@ -218,6 +218,13 @@ image:
   grant all on *.* to 'root'@'%' identified by '123456';
   ```
 
+- 在主从MySQL服务器上的my.cnf的mysqld中添加以下配置，打开查询日志，查询日志会记录所有执行过的SQL语句，所以在生产环境不要打开此配置，此配置为MySQL5.6配置：
+
+  ```bash
+  general_log=on  #打开查询日志
+  general_log_file=/tmp/query.log #配置查询日志路径
+  ```
+  
 - 访问mysql-proxy：
 
   ```bash
@@ -236,16 +243,22 @@ image:
 
   Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
-  MySQL [(none)]> select * from backends;
-  +-------------+------------------+---------+------+------+-------------------+
-  | backend_ndx | address          | state   | type | uuid | connected_clients |
-  +-------------+------------------+---------+------+------+-------------------+
-  |           1 | 192.168.199.128:3306 | up      | rw   | NULL |                 0 |
-  |           2 | 192.168.199.129:3306 | unknown | ro   | NULL |                 0 |
-  +-------------+------------------+---------+------+------+-------------------+
+  mysql> select * from backends;
+  +-------------+----------------------+-------+------+------+-------------------+
+  | backend_ndx | address              | state | type | uuid | connected_clients |
+  +-------------+----------------------+-------+------+------+-------------------+
+  |           1 | 192.168.136.133:3306 | up    | rw   | NULL |                 0 |
+  |           2 | 192.168.136.134:3306 | up    | ro   | NULL |                 1 |
+  +-------------+----------------------+-------+------+------+-------------------+
   2 rows in set (0.00 sec)
-  ```
 
+  ```
+   
+- 查看主从MySQL的查询日志：
+
+  ![mysql-proxy](https://blogimage-1251925320.cos.ap-chengdu.myqcloud.com/mysql-proxy.png)
+  > 可以看到查询语句在两台服务器上都会执行，而写入语句只会在master上被执行。
+  
 - 由于MySQL官方不推荐将mysql-proxy用于生产环境，所以实现读写分离，还可以尝试使用mycat和基于mysql-proxy二次开发的atlas。
 
 ---
