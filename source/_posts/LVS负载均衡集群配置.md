@@ -2,8 +2,11 @@
 title: LVS负载均衡集群配置
 author: Evobot
 date: 2018-07-04 21:40:07
-categories:
+categories: LVS
 tags:
+  - 负载均衡
+  - LVS
+  - Centos
 image:
 ---
 
