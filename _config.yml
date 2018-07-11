@@ -83,7 +83,7 @@ Plugins:
 - hexo-generator-sitemap
 - hexo-symbols-count-time
 - hexo-generator-searchdb
-- hexo-douban
+  #- hexo-douban
 #Feed Atom
 feed:
   type: rss2
@@ -143,18 +143,18 @@ neat_js:
     - '*.min.js'
 
 # hexo-douban插件配置
-douban:
-  user: im_yanxinzhe
-  book:
-    title: 'BOOKS'
-    quote: '春来不是读书天,夏日炎炎正好眠,秋有蚊虫冬有雪,收拾书本好过年'
-  movie:
-    title: 'MOVIES'
-    quote: '错过的电影，总是最好看的'
+#douban:
+#  user: im_yanxinzhe
+#  book:
+#    title: 'BOOKS'
+#    quote: '春来不是读书天,夏日炎炎正好眠,秋有蚊虫冬有雪,收拾书本好过年'
+#  movie:
+#    title: 'MOVIES'
+#    quote: '错过的电影，总是最好看的'
   #game:
     #title: 'This is my game title'
     #quote: 'This is my game quote'
-  timeout: 5000 #optional
+    #  timeout: 5000 #optional
 
 # next主题配置
 theme_config:
@@ -198,8 +198,8 @@ theme_config:
     categories: /categories/ || th
     tags: /tags/ || tags
     archives: /archives/ || archive
-    Movies: /movies/ || film
-    Books: /books/ || book
+    #Movies: /movies/ || film
+    #Books: /books/ || book
 
   menu_settings:
     icons: true
