@@ -1,11 +1,12 @@
 ---
 title: MySQL主从同步扩展
 author: Evobot
-date: 2018-07-01 00:31:01
 categories: MySQL
 tags:
   - MySQL
   - Centos
+abbrlink: 1d4bada3
+date: 2018-07-01 00:31:01
 image:
 ---
 

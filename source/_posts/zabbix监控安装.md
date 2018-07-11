@@ -1,11 +1,12 @@
 ---
 title: zabbix监控安装
 author: Evobot
-date: 2018-07-08 22:44:40
 categories: zabbix
 tags:
   - zabbix
   - 监控
+abbrlink: 1d9537f2
+date: 2018-07-08 22:44:40
 image:
 ---
 

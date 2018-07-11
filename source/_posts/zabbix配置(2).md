@@ -1,13 +1,13 @@
 ---
 title: zabbix配置(2)
 author: Evobot
-date: 2018-07-11 00:40:23
 categories: zabbix
 tags:
   - zabbix
   - 监控
+abbrlink: 70225f81
+date: 2018-07-11 00:40:23
 image:
-
 ---
 
 本文主要介绍如何在zabbix中添加自定义监控项目，以及怎么配置zabbix告警的邮件提醒。
@@ -162,7 +162,7 @@ image:
 
   ```bash
   HOST:{HOST.NAME} {HOST.IP}
-  TIME:{EVENT.DATA} {EVENT.TIME}
+  TIME:{EVENT.DATE} {EVENT.TIME}
   LEVEL:{TRIGGER.SEVERITY}
   NAME:{TRIGGER.NAME}
   messages:{ITEM.NAME}:{ITEM.VALUE}
@@ -179,7 +179,7 @@ image:
 
   ```bash
   HOST:{HOST.NAME} {HOST.IP}
-  TIME:{EVENT.DATA} {EVENT.TIME}
+  TIME:{EVENT.DATE} {EVENT.TIME}
   LEVEL:{TRIGGER.SEVERITY}
   NAME:{TRIGGER.NAME}
   messages:{ITEM.NAME}:{ITEM.VALUE}

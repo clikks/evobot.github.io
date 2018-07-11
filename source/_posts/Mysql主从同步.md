@@ -1,11 +1,12 @@
 ---
 title: MySQL主从配置
 author: Evobot
-date: 2018-06-28 22:30:11
 categories: MySQL
-tags: 
+tags:
   - MySQL
   - Centos
+abbrlink: f1a9d93b
+date: 2018-06-28 22:30:11
 image:
 ---
 

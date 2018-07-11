@@ -1,12 +1,13 @@
 ---
 title: Tomcat相关配置
 author: Evobot
-date: 2018-06-27 21:41:57
 categories: Tomcat
 tags:
   - Tomcat
   - Centos
   - zrlog
+abbrlink: ff06060d
+date: 2018-06-27 21:41:57
 image:
 ---
 

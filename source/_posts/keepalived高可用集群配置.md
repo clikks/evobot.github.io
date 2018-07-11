@@ -1,12 +1,13 @@
 ---
 title: keepalived高可用集群配置
 author: Evobot
-date: 2018-07-03 21:05:21
 categories: keepalived
 tags:
   - 高可用
   - Centos
   - keepalived
+abbrlink: d985ce99
+date: 2018-07-03 21:05:21
 image:
 ---
 

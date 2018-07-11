@@ -1,13 +1,13 @@
 ---
 title: zabbix配置(1)
 author: Evobot
-date: 2018-07-09 21:21:30
 categories: zabbix
 tags:
   - zabbix
   - 监控
+abbrlink: 5b0f0c42
+date: 2018-07-09 21:21:30
 image:
-
 ---
 
 

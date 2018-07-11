@@ -1,12 +1,13 @@
 ---
 title: LVS DR模式及keepalived+LVS
 author: Evobot
-date: 2018-07-05 21:34:23
 categories: LVS
 tags:
   - LVS
   - keepalived
   - 负载均衡
+abbrlink: 92b2b429
+date: 2018-07-05 21:34:23
 image:
 ---
 
