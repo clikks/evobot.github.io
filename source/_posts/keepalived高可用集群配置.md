@@ -12,7 +12,7 @@ image:
 
 
 
-
+本文主要对集群和keepalived进行了相关的介绍，然后介绍了如何进行keepalived高可用集群的配置和测试。
 
 <!--more-->
 
@@ -310,7 +310,6 @@ image:
 
   ![keepalived-backup](https://blogimage-1251925320.cos.ap-chengdu.myqcloud.com/keepalived-backup.png)
 
-  ​
 
   - VIP已经转移到backup服务器上。
 
