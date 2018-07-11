@@ -200,3 +200,4 @@ image:
 
   ![zabbix-test](https://blogimage-1251925320.cos.ap-chengdu.myqcloud.com/zabbix-test.png)
 
+- 另外在**配置**》**主机**》**监控项**中，打开需要配置的监控项，可以在类型中选择主被动模式，默认为zabbix客户端，即被动模式，而zabbix客户端(主动式)则是主动模式。
