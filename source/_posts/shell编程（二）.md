@@ -10,7 +10,7 @@ image:
 
 
 
-
+本文主要介绍shell中的逻辑判断相关的知识，包括shell脚本中if判断的用法、逻辑判断符的用法，以及case条件判断的用法和示例。
 
 <!--more-->
 
@@ -73,7 +73,7 @@ image:
 
 <style>
 table th:first-of-type {
-    width: 100px;
+    width: 140px;
 }
 </style>
 
