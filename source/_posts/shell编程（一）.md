@@ -2,9 +2,9 @@
 title: shell编程（一）
 author: Evobot
 date: 2018-07-11 21:25:30
-categories: shell
+categories: shell基础
 tags:
-  - shell
+  - shell基础
 image:
 ---
 
