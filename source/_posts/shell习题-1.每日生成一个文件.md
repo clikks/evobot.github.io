@@ -1,5 +1,5 @@
 ---
-title: shell习题-1.每日生产一个文件
+title: shell习题-1.每日生成一个文件
 author: Evobot
 date: 2018-07-12 15:08:24
 categories: shell习题
