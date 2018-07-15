@@ -1,12 +1,12 @@
 ---
 title: shell编程（三）
 author: Evobot
-date: 2018-07-14 00:09:24
 categories: shell编程
 tags:
   - shell编程
+abbrlink: a2bcdace
+date: 2018-07-14 00:09:24
 image:
-
 ---
 
 

@@ -1,10 +1,11 @@
 ---
 title: shell编程（二）
 author: Evobot
-date: 2018-07-12 21:30:57
 categories: shell基础
 tags:
   - shell基础
+abbrlink: efa2799c
+date: 2018-07-12 21:30:57
 image:
 ---
 
