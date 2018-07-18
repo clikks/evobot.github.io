@@ -125,7 +125,7 @@ image:
 - 首先给`mail.py`增加执行权限，然后因为`mail.py`中，定义的三个参数分别为收件人、邮件主题、邮件内容，所以还需要修改监控脚本中发送邮件的部分，以`load.sh`为例，将发送邮件的部分修改如下：
 
   ```bash
-  /bin/bash ../mail/mail.sh 15608013032@163.com "$addr\_load:$load" `cat ../log/load.tmp`
+  /bin/bash ../mail/mail.sh username@163.com "$addr\_load:$load" `cat ../log/load.tmp`
   ```
 
 - 执行`crontab -e`，然后写入以下规则：
