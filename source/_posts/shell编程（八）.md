@@ -1,10 +1,11 @@
 ---
 title: shell编程（八）
 author: Evobot
-date: 2018-07-20 22:48:02
 categories: shell编程
 tags:
   - shell编程
+abbrlink: 3a6a12e9
+date: 2018-07-20 22:48:02
 image:
 ---
 
@@ -62,7 +63,7 @@ image:
   set passwd "123456"
   set host [lindex $argv 0]
   set file [lindex $argv 1]
-  spawn raync -av $file root@$host:$gile
+  spawn rsync -av $file root@$host:$gile
   expect {
   "yes/no" { send "yes\r" }
   "password" { send "$passwd\r" }

@@ -1,10 +1,11 @@
 ---
 title: shell编程（六）
 author: Evobot
-date: 2018-07-18 23:40:35
 categories: shell编程
 tags:
   - shell编程
+abbrlink: 1f014d35
+date: 2018-07-18 23:40:35
 image:
 ---
 

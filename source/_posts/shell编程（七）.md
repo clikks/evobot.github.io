@@ -1,10 +1,11 @@
 ---
 title: shell编程（七）
 author: Evobot
-date: 2018-07-19 22:53:04
 categories: shell编程
 tags:
   - shell编程
+abbrlink: cd013aaa
+date: 2018-07-19 22:53:04
 image:
 ---
 
