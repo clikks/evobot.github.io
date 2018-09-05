@@ -1,11 +1,12 @@
 ---
 title: nosql及memcached介绍
 author: Evobot
-date: 2018-08-14 23:24:32
 categories: NoSQL
-tags: 
+tags:
   - NoSQL
   - memcached
+abbrlink: ee0f8529
+date: 2018-08-14 23:24:32
 image:
 ---
 

@@ -1,10 +1,11 @@
 ---
 title: redis慢查询、php扩展、存储session及主从配置
 author: Evobot
-date: 2018-08-22 20:52:09
 categories: NoSQL
 tags:
   - redis
+abbrlink: 96d8d8aa
+date: 2018-08-22 20:52:09
 image:
 ---
 

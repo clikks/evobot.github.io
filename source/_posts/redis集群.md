@@ -1,10 +1,11 @@
 ---
 title: redis集群
 author: Evobot
-date: 2018-08-22 22:13:01
 categories: NoSQL
 tags:
   - redis
+abbrlink: b153a32a
+date: 2018-08-22 22:13:01
 image:
 ---
 

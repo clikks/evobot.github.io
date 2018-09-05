@@ -1,11 +1,12 @@
 ---
 title: redis常用操作及安全设置
 author: Evobot
-date: 2018-08-20 20:27:41
 categories: NoSQL
 tags:
   - NoSQL
   - redis
+abbrlink: 9fd734fa
+date: 2018-08-20 20:27:41
 image:
 ---
 

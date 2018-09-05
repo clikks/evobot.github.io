@@ -40,14 +40,14 @@ image:
 
 - firewalld默认有9个zone，一个zone相当于一个规则集，默认的zone为**public**；
 
-- 查看所有的zone使用命令`firewalld-cmd --get-zones`：
+- 查看所有的zone使用命令`firewall-cmd --get-zones`：
 
   ```bash
   [root@www ~]# firewall-cmd --get-zones
   work drop internal external trusted home dmz public block
   ```
 
-- 查看默认的zone使用命令`firewalld-cmd --get-default-zone`：
+- 查看默认的zone使用命令`firewall-cmd --get-default-zone`：
 
   ```bash
   [root@www ~]# firewall-cmd --get-default-zone 

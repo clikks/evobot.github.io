@@ -1,11 +1,12 @@
 ---
 title: redis安装、持久化及数据类型
 author: Evobot
-date: 2018-08-19 22:32:00
 categories: NoSQL
 tags:
   - NoSQL
   - redis
+abbrlink: af5b5602
+date: 2018-08-19 22:32:00
 image:
 ---
 

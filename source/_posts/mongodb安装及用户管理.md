@@ -1,10 +1,11 @@
 ---
 title: MongoDB安装及用户管理
 author: Evobot
-date: 2018-08-25 20:55:46
 categories: NoSQL
 tags:
   - MongoDB
+abbrlink: c32ba965
+date: 2018-08-25 20:55:46
 image:
 ---
 

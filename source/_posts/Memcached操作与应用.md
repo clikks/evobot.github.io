@@ -1,10 +1,11 @@
 ---
 title: Memcached操作与应用
 author: Evobot
-date: 2018-08-15 23:19:30
 categories: NoSQL
-tags: 
+tags:
   - Memcached
+abbrlink: 32089b8c
+date: 2018-08-15 23:19:30
 image:
 ---
 
