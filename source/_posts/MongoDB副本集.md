@@ -1,10 +1,11 @@
 ---
 title: MongoDB副本集
 author: Evobot
-date: 2018-09-05 21:30:29
 categories: NoSQL
 tags:
   - MongoDB
+abbrlink: 21dac2a4
+date: 2018-09-05 21:30:29
 image:
 ---
 

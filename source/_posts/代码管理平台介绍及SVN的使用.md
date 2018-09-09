@@ -1,10 +1,11 @@
 ---
 title: 代码管理平台介绍及SVN的使用
 author: Evobot
-date: 2018-09-07 23:30:24
 categories: 代码管理平台
 tags:
   - SVN
+abbrlink: f7e78b85
+date: 2018-09-07 23:30:24
 image:
 ---
 
