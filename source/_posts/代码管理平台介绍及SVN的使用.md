@@ -218,7 +218,7 @@ image:
 
 ## 使用svn客户端（windows）
 
-- 到[https://tortoisesvn.net/index.zh.html](https://tortoisesvn.net/index.zh.html])下载tortoisesvn软件并安装；
+- 到[https://tortoisesvn.net/index.zh.html](https://tortoisesvn.net/index.zh.html)下载tortoisesvn软件并安装；
 - 然后在本地需要存放仓库的目录下点击右键，选择SVN Checkout菜单，然后填写远程仓库的地址，然后点击OK，输入用户名密码即可；
 - 在仓库中创建文件，在文件上点右键选择Add，然后选择commit，添加说明后点击OK，图标也会变成绿色的对勾，就完成了文件推送；
 - 其他如删除、查看历史，都可以在菜单中选择。

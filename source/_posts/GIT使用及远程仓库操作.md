@@ -1,5 +1,5 @@
 ---
-title: GIT和远程仓库操作
+title: GIT使用及远程仓库操作
 author: Evobot
 date: 2018-09-09 22:01:12
 categories: 代码管理平台
