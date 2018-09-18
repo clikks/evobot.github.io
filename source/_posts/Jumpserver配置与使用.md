@@ -13,7 +13,7 @@ image:
 3. 添加系统用户并授权
 4. 添加授权规则
 5. 客户端登录jumpserver
-
+<!--more-->
 ---
 
 # 创建Jumpserver普通用户
