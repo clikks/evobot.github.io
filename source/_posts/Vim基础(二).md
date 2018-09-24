@@ -12,7 +12,7 @@ image:
 
 
 
-![vim模式关系](http://p5qynomrl.bkt.clouddn.com/15236446713184315ls9p.png?imageslim)
+![vim模式关系](http://qiniu.evobot.cn/15236446713184315ls9p.png?imageslim)
 
 本文主要介绍Vim的编辑模式相关操作以及命令模式的相关操作。
 

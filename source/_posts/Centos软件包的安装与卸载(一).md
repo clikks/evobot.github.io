@@ -430,7 +430,7 @@ Created symlink from /etc/systemd/system/multi-user.target.wants/vsftpd.service 
 - 启动vsftp服务后，还需要关闭防火墙，否则无法访问FTP服务，使用命令`systemctl stop firewalld.service`关闭防火墙，如果想要禁止防火墙启动，执行`systemctl disable firewalld.service`即可；
 - 这时从浏览器使用`ftp://[ip address]`地址访问FTP服务器，出现下面的界面表示FTP服务运行正常：
 
-![FTP](http://p5qynomrl.bkt.clouddn.com/15239803743973aqlnr8b.png?imageslim)
+![FTP](http://qiniu.evobot.cn/15239803743973aqlnr8b.png?imageslim)
 
 ### 仓库设置
 
@@ -443,7 +443,7 @@ Created symlink from /etc/systemd/system/multi-user.target.wants/vsftpd.service 
 
 - 复制完成后，在浏览器中访问FTP，进入`centos7/Packages`目录，就可以看到所有的rpm软件包：
 
-![rpm](http://p5qynomrl.bkt.clouddn.com/15239832162285ykeole1.png?imageslim)
+![rpm](http://qiniu.evobot.cn/15239832162285ykeole1.png?imageslim)
 
 - 接着安装`createrepo`软件包用来身材yum仓库的rpm元数据，使用`yum install -y createrepo`安装；
 - 安装完成后，使用命令`createrepo /var/ftp/pub/centos7`生成rpm元数据：

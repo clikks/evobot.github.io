@@ -52,7 +52,7 @@ image:
 
 - 上面的方式只会在当前登录用户的环境中生效，而要让新的环境变量永久生效，则需要将`PATH=$PATH:/tmp/`写入到`/etc/profile`文件末尾。
 
-  ![增加PATH](http://p5qynomrl.bkt.clouddn.com/1522162144804yntgfqme.png?imageslim)
+  ![增加PATH](http://qiniu.evobot.cn/1522162144804yntgfqme.png?imageslim)
 
 # 复制命令 cp
 

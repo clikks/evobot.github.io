@@ -4,18 +4,18 @@ abbrlink: 144d2216
 date: 2018-03-21 01:36:54
 categories: Centos7
 tags: [Linux, Centos]
-image: http://p5qynomrl.bkt.clouddn.com/15215702249616hbmgtp3.png?imageslim
+image: http://qiniu.evobot.cn/15215702249616hbmgtp3.png?imageslim
 ---
 开启虚拟机，使用root账户登录到Centos中，因为我们在创建虚拟机的时候，使用的是nat模式，所以这个时候系统其实是可以使用dhcp上网的，但是有时候我们还需要配置静态IP等，这时候就需要对系统网络进行配置。
 <!-- more -->
 # DHCP配置
 ## 虚拟网络编辑器
 - 虚拟机刚运行时，系统并不会开启DHCP服务，所以这时可以运行`dhclient`命令让系统自动获取ip地址：
-![dhclient](http://p5qynomrl.bkt.clouddn.com/1521568317622jtndcbms.png?imageslim)
+![dhclient](http://qiniu.evobot.cn/1521568317622jtndcbms.png?imageslim)
 - 可以图上看到系统获取的ip地址为**192.168.253.129**，这个地址其实是VMware的虚拟网络编辑器中配置的，点击VMware菜单栏的编辑-虚拟网络编辑器，可以看到NAT模式所配置的IP地址段：
-![虚拟网络编辑器](http://p5qynomrl.bkt.clouddn.com/1521568518435iqk6akyj.png?imageslim)
+![虚拟网络编辑器](http://qiniu.evobot.cn/1521568518435iqk6akyj.png?imageslim)
 - 点击**DHCP**设置，即可对虚拟网络的IP地址段进行配置：
-![DHCP配置](http://p5qynomrl.bkt.clouddn.com/1521568591065reso26ik.png?imageslim)
+![DHCP配置](http://qiniu.evobot.cn/1521568591065reso26ik.png?imageslim)
 
 # 静态IP配置
 ## 网卡配置文件
@@ -58,7 +58,7 @@ ONBOOT=no	# 这里表示开机加载网卡
 ```
 
 - 配置静态ip，除了修改网卡为`static`之外，还需要为网卡配置IP地址和子网掩码以及网关，在虚拟机中网关可以在虚拟网络编辑器中看到：
-![网关地址](http://p5qynomrl.bkt.clouddn.com/15215702249616hbmgtp3.png?imageslim)
+![网关地址](http://qiniu.evobot.cn/15215702249616hbmgtp3.png?imageslim)
 - 具体修改**ens33**配置文件如下：
 ```bash
 TYPE=Ethernet

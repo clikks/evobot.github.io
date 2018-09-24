@@ -5,7 +5,7 @@ abbrlink: fd76e245
 date: 2018-03-26 21:50:06
 categories: Centos7
 tags: [Linux, Centos]
-image: http://p5qynomrl.bkt.clouddn.com/1522076578398hgl3ncm4.png?imageslim
+image: http://qiniu.evobot.cn/1522076578398hgl3ncm4.png?imageslim
 ---
 本文主要介绍Linux相对和绝对路径的概念，以及cd命令、mkdir、rmdir命令和rm几个操作文件及目录的命令。文章封面的`rm -rf /*`命令会导致系统崩溃，请勿尝试~	
 

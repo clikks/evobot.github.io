@@ -12,7 +12,7 @@ image:
 
 
 
-![磁盘分区](http://p5qynomrl.bkt.clouddn.com/1523378473666fges139o.png?imageslim)
+![磁盘分区](http://qiniu.evobot.cn/1523378473666fges139o.png?imageslim)
 
 本文主要介绍如何格式化新增的磁盘分区，并介绍怎样将新分区挂载到系统目录，以及如何增加swap空间。
 

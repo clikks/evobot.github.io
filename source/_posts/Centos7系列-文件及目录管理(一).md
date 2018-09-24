@@ -11,7 +11,7 @@ photo:
 
 本文主要介绍Centos7的目录结构，文件类型，以及一些基础命令，如`ls`、`alias`命令，来进一步了解Centos系统的基本操作。
 
-![Linux目录结构](http://p5qynomrl.bkt.clouddn.com/linux%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.jpg)
+![Linux目录结构](http://qiniu.evobot.cn/linux%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.jpg)
 
 <!-- more -->
 

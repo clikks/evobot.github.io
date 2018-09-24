@@ -7,7 +7,7 @@ tags:
   - Centos
 abbrlink: b9ebaad1
 date: 2018-04-15 23:10:03
-image: http://p5qynomrl.bkt.clouddn.com/15238112046500szvwym3.png?imageslim
+image: http://qiniu.evobot.cn/15238112046500szvwym3.png?imageslim
 ---
 
 

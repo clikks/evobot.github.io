@@ -14,7 +14,7 @@ image:
 
 LVM是指逻辑卷管理，由物理磁盘、物理卷、卷组、逻辑卷组成。物理卷组在物理磁盘上创建，磁盘ID为`8e`，与分区创建相同，一个和多个物理卷组成卷组，在卷组的基础上划分逻辑卷，逻辑卷格式化之后进行挂载。
 
-![LVM](http://p5qynomrl.bkt.clouddn.com/1523456458706v7d50vlz.png?imageslim)
+![LVM](http://qiniu.evobot.cn/1523456458706v7d50vlz.png?imageslim)
 
 LVM相比普通分区，优点在于可以方便的进行扩容和缩容，但是同样也带来了数据恢复困难的缺点。
 

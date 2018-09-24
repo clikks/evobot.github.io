@@ -9,7 +9,7 @@ abbrlink: 43eb8ab5
 date: 2018-04-09 20:30:03
 image:
 ---
-![磁盘分区](http://p5qynomrl.bkt.clouddn.com/1523288634264cki496jp.png?imageslim)
+![磁盘分区](http://qiniu.evobot.cn/1523288634264cki496jp.png?imageslim)
 主要介绍Linux系统中磁盘管理命令`df`和`du`命令的用法，以及使用`fdisk`和`parted`命令行工具对磁盘的分区操作。
 
 <!--more-->

@@ -9,7 +9,7 @@ categories: Linux
 abbrlink: 3fd6800f
 date: 2016-02-14 16:02:53
 ---
-![](http://7xqo9u.com1.z0.glb.clouddn.com/arch%20cinnamonarch_linux_flat_wallpaper_by_debasishpatra-d7gmn9w.jpg)
+![](http://images.evobot.cn/arch%20cinnamonarch_linux_flat_wallpaper_by_debasishpatra-d7gmn9w.jpg)
 
 Arch Linux是一款简洁优雅的GNU/Linux发行版，采用滚动升级的形式，只提供最基础的系统，一切配置都需要用户根据需要自行解决。
 

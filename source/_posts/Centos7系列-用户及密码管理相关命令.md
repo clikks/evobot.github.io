@@ -5,7 +5,7 @@ abbrlink: 2af55eed
 date: 2018-04-03 22:44:32
 categories: Centos7
 tags: [Linux, Centos]
-photo: http://p5qynomrl.bkt.clouddn.com/1522771004764cu3a7i8u.png?imageslim
+photo: http://qiniu.evobot.cn/1522771004764cu3a7i8u.png?imageslim
 ---
 
 
