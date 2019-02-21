@@ -1,10 +1,11 @@
 ---
 title: GIT分支与标签管理
 author: Evobot
-date: 2018-09-09 23:53:03
 categories: 代码管理平台
 tags:
   - GIT
+abbrlink: 6381aa8
+date: 2018-09-09 23:53:03
 image:
 ---
 

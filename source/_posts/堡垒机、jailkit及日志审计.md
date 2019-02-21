@@ -1,10 +1,11 @@
 ---
 title: 堡垒机、jailkit及日志审计
 author: Evobot
-date: 2018-09-13 21:34:57
 categories: 堡垒机
-tags: 
+tags:
   - jailkit
+abbrlink: c84b04a
+date: 2018-09-13 21:34:57
 image:
 ---
 

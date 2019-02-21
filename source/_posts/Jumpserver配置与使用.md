@@ -1,10 +1,11 @@
 ---
 title: Jumpserver配置与使用
 author: Evobot
-date: 2018-09-17 20:11:47
 categories: 堡垒机
 tags:
   - Jumpserver
+abbrlink: ebcc5c5a
+date: 2018-09-17 20:11:47
 image:
 ---
 

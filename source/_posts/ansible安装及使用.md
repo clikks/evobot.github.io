@@ -1,10 +1,11 @@
 ---
 title: ansible安装及使用
 author: Evobot
-date: 2018-09-24 19:43:21
 categories: 自动化运维
 tags:
   - ansible
+abbrlink: f3cddf4d
+date: 2018-09-24 19:43:21
 image:
 ---
 

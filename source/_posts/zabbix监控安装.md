@@ -91,7 +91,7 @@ image:
   character_set_server=utf8
   ```
 
-- 登录MySQL，黄建zabbix数据库，并指定编码为utf8，并且为zabbix的web服务创建一个MySQL用户：
+- 登录MySQL，创建zabbix数据库，并指定编码为utf8，并且为zabbix的web服务创建一个MySQL用户：
 
   ```sql
   mysql> create database zabbix character set utf8 collate utf8_bin;

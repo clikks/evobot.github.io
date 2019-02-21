@@ -1,10 +1,11 @@
 ---
 title: 自动化运维saltstack
 author: Evobot
-date: 2018-09-18 21:22:48
 categories: 自动化运维
 tags:
- - saltstack
+  - saltstack
+abbrlink: '17498151'
+date: 2018-09-18 21:22:48
 image:
 ---
 

@@ -1,10 +1,11 @@
 ---
 title: ansible管理服务及playbook的使用
 author: Evobot
-date: 2018-09-25 22:44:19
 categories: 自动化运维
 tags:
   - ansible
+abbrlink: 54a1f6fc
+date: 2018-09-25 22:44:19
 image:
 ---
 

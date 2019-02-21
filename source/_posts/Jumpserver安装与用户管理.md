@@ -1,10 +1,11 @@
 ---
 title: Jumpserver安装与用户管理
 author: Evobot
-date: 2018-09-15 20:41:50
 categories: 堡垒机
 tags:
   - Jumpserver
+abbrlink: 6969a3ac
+date: 2018-09-15 20:41:50
 image:
 ---
 

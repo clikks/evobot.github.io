@@ -1,10 +1,11 @@
 ---
 title: saltstack配置与使用(二)
 author: Evobot
-date: 2018-09-20 19:08:27
 categories: 自动化运维
 tags:
   - saltstack
+abbrlink: 3ec8e2a5
+date: 2018-09-20 19:08:27
 image:
 ---
 
