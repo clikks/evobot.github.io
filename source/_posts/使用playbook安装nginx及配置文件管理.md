@@ -1,11 +1,10 @@
 ---
 title: 使用playbook安装nginx及配置文件管理
 author: Evobot
+date: 2018-10-06 16:40:50
 categories: 自动化运维
 tags:
   - ansible
-abbrlink: af95245c
-date: 2018-10-06 16:40:50
 image:
 ---
 
@@ -275,5 +274,147 @@ image:
 
 ---
 
+# playbook管理配置文件
 
+## 管理配置文件更新
+
+- 生产环境中大多数时候是需要管理配置文件的，安装软件包只是在初始化环境的时候使用，而配置文件则是在使用过程中非常常用的，例如配置的下发、回滚等等；
+- 我们可以使用playbook来实现对配置文件的管理，例如管理nginx配置的playbook，具体步骤如下：
+
+1. 在`/etc/ansible/`目录下创建以下目录：
+
+   ```bash
+   mkdir -p /etc/ansible/nginx_config/roles/{new,old}/{files,handlers,vars,tasks}
+   ```
+
+   其中new目录为更新时用到的，old则是回滚时用到的，files下面为nginx.conf和vhosts目录，handlers为重启nginx服务的命令
+
+2. 在执行playbook前一定要先备份一下旧的配置，对于老的配置文件的管理一定要严格，不要随意修改线上机器的配置，并且要保证`new/files`下面的配置和线上机器的配置一致；
+
+3. 首先将`nginx.conf`和`vhost`目录拷贝到`/etc/ansible/nginx_config/roles/new/files/`目录下：
+
+   ```bash
+   cd /usr/local/nginx/conf
+   cp -r nginx.conf vhosts/ /etc/ansible/nginx_config/roles/new/files/
+   ```
+
+4. 然后在`roles/new/vars/`目录下创建定义变量的`main.yml`文件，写入如下内容：
+
+   ```yaml
+   nginx_basedir:/usr/local/nginx
+   ```
+
+5. 接着在`roles/new/handlers/`目录下创建定义重新加载nginx服务的`main.yml`文件，写入内容如下：
+
+   ```yaml
+   - name:restart nginx
+     shell:/etc/init.d/nginx reload
+   ```
+
+6. 然后在`roles/new/tasks/`目录下创建核心人物的`main.yml`文件，内容如下：
+
+   ```yaml
+   - name: copy conf file
+     copy: src={{ item.src }} dest={{ nginx_basedir }}/{{ item.dest }} backup=yes owner=root group=root m
+   ode=0644
+     with_items:
+       - { src: nginx.conf, dest: conf/nginx.conf }
+       - { src: vhosts, dest: conf/ }
+     notify: restart nginx
+   
+   ```
+
+   这里的`{{ item.src }}`和`{{ item.dest }}`使用了两个循环变量，并且在下面的`with_items`中分别定义了两次循环的src和dest变量，最后再执行`restart nginx`这个handlers。
+
+7. 最后在`/etc/ansible/nginx_config/`目录下定义总入口配置文件`update.yml`，其内容如下：
+
+   ```yaml
+   ---
+   - hosts: testhost
+     user: root
+     roles:
+       - new
+   ```
+
+8. 执行playbook，查看是否成功：
+
+   ```bash
+   [root@localhost nginx_config]# ansible-playbook /etc/ansible/nginx_config/update.yml
+   
+   PLAY [testhost] **************************************************************************************
+   
+   TASK [Gathering Facts] *******************************************************************************
+   ok: [centos_2]
+   ok: [centos_1]
+   
+   TASK [new : copy conf file] **************************************************************************
+   changed: [centos_2] => (item={u'dest': u'conf/nginx.conf', u'src': u'nginx.conf'})
+   changed: [centos_1] => (item={u'dest': u'conf/nginx.conf', u'src': u'nginx.conf'})
+   changed: [centos_1] => (item={u'dest': u'conf/', u'src': u'vhosts'})
+   changed: [centos_2] => (item={u'dest': u'conf/', u'src': u'vhosts'})
+   
+   RUNNING HANDLER [new : restart nginx] ****************************************************************
+   changed: [centos_2]
+   changed: [centos_1]
+   
+   PLAY RECAP *******************************************************************************************
+   centos_1                   : ok=3    changed=2    unreachable=0    failed=0
+   centos_2                   : ok=3    changed=2    unreachable=0    failed=0
+   
+   ```
+
+9. 我们也可以对`/role/new/files/nginx.conf`做一些修改，然后重新执行playbook，再查看执行结果：
+
+   ```bash
+   [root@localhost new]# ansible-playbook /etc/ansible/nginx_config/update.yml
+   
+   PLAY [testhost] **************************************************************************************
+   
+   TASK [Gathering Facts] *******************************************************************************
+   ok: [centos_2]
+   ok: [centos_1]
+   
+   TASK [new : copy conf file] **************************************************************************
+   changed: [centos_1] => (item={u'dest': u'conf/nginx.conf', u'src': u'nginx.conf'})
+   changed: [centos_2] => (item={u'dest': u'conf/nginx.conf', u'src': u'nginx.conf'})
+   ok: [centos_1] => (item={u'dest': u'conf/', u'src': u'vhosts'})
+   ok: [centos_2] => (item={u'dest': u'conf/', u'src': u'vhosts'})
+   
+   RUNNING HANDLER [new : restart nginx] ****************************************************************
+   changed: [centos_1]
+   changed: [centos_2]
+   
+   PLAY RECAP *******************************************************************************************
+   centos_1                   : ok=3    changed=2    unreachable=0    failed=0
+   centos_2                   : ok=3    changed=2    unreachable=0    failed=0
+   
+   
+   ```
+
+   可以看到，只更改nginx.conf时，playbook对远程机器也会只更改nginx.conf。
+
+## 管理配置文件回滚
+
+- 回滚操作就是用旧的配置覆盖现有的配置，然后重新加载nginx服务，每次改动nginx配置文件之前，应该先将配置备份到`old/files`目录中；
+
+- 首先备份旧的配置文件，使用`rsync`命令将配置同步到`old/files`下：
+
+  ```bash
+  rsync -av /etc/ansible/nginx_config/roles/new/ /etc/ansible/nginx_config/roles/old/
+  ```
+
+- 然后在`nginx_config`目录下创建`rollback.yml`总入口文件，内容如下：
+
+  ```yaml
+  ---
+  - hosts: testhost
+    user: root
+    roles:
+      - old
+  
+  ```
+
+- 最后执行`ansible-playbook rollback.yml`即可完成配置的回滚，实际上回滚与更新只改变了配置文件，其余的操作与更新是相同的，所以只需要在playbook的总入口文件中指定使用old角色即可。
+
+---
 

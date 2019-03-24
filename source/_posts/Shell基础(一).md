@@ -160,7 +160,7 @@ hello world
 |      `2>>`      |       `ls test.txt 2>> err.txt`       | 将符号左边命令的**错误执行**信息，追加写入到符号 |
 |      `&>`       |    `ls [12].txt aa.txt &> err.txt`    | 将**正确和错误**的执行信息，都覆盖输出到符号右边 |
 |      `&>>`      |   `ls [12].txt aa.txt &>> err.txt`    |  将**正确和错误**的执行信息，都输出到符号右边  |
-| `cmd > x 2 > y` |   `ls 1.txt a.txt > true 2> false`    |    将命令执行正确的输出到x，错误的输出到y    |
+| `cmd > x 2> y` |   `ls 1.txt a.txt > true 2> false`    |    将命令执行正确的输出到x，错误的输出到y    |
 | `cmd > X 2>&1`  | `ls /etc/hosts /etc/xzfa > true 2>&1` |  将命令执行的结果不论正确与否，都输出到X文件中   |
 |       `<`       |            `wc -l < 1.txt`            | 输入重定向。将符号右边的内容输入到左边的**命令** |
 
