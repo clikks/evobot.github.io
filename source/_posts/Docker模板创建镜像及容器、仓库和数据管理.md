@@ -1,10 +1,11 @@
 ---
 title: Docker模板创建镜像及容器、仓库和数据管理
 author: Evobot
-date: 2019-04-08 21:56:43
 categories: 虚拟化与容器化
 tags:
   - Docker
+abbrlink: 1af6f2ec
+date: 2019-04-08 21:56:43
 image:
 ---
 

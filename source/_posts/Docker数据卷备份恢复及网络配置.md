@@ -1,10 +1,11 @@
 ---
 title: Docker数据卷备份恢复及网络配置
 author: Evobot
-date: 2019-04-11 21:58:21
 categories: 虚拟化与容器化
 tags:
   - Docker
+abbrlink: aad1613b
+date: 2019-04-11 21:58:21
 image:
 ---
 

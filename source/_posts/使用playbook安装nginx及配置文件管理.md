@@ -1,10 +1,11 @@
 ---
 title: 使用playbook安装nginx及配置文件管理
 author: Evobot
-date: 2018-10-06 16:40:50
 categories: 自动化运维
 tags:
   - ansible
+abbrlink: af95245c
+date: 2018-10-06 16:40:50
 image:
 ---
 

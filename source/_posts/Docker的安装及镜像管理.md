@@ -1,10 +1,11 @@
 ---
 title: Docker的安装及镜像管理
 author: Evobot
-date: 2019-03-24 21:29:09
 categories: 虚拟化与容器化
 tags:
   - Docker
+abbrlink: 9431ef69
+date: 2019-03-24 21:29:09
 image:
 ---
 
