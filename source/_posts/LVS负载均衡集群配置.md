@@ -23,7 +23,7 @@ image:
 
 ## 负载均衡集群介绍
 
-- 主流开源的负载均衡软件有LVS，keepalived、haproxy、bginx风
+- 主流开源的负载均衡软件有LVS，keepalived、haproxy、nginx等；
 - LVS数据4层，nginx则属于7层(网络OSI7层模型)，haproxy既可以为4层，也可以当做7层使用；
 - keepalived的负载均衡功能就是lvs，lvs这种4层的负载可以分发80端口以外的其他通信端口，比如MySQL；而nginx只可以支持http、https、mail，haproxy也可以支持MySQL；
 - 相对来说，LVS这种4层结构更稳定，能承受更多的请求，而nginx这种7层的更改灵活，更容易实现个性化需求。

@@ -72,7 +72,8 @@ image:
 - 最后在dir以及两台rs上分别执行上面创建的脚本，然后尝试访问vip，注意，如果在浏览器中测试，刷新时需要ctrl+F5进行刷新，如果使用curl访问，则不能在dir或者rs上进行访问，要从其他linux上访问，结果如下：
 
   ```bash
-  $ curl 192.168.67.100                            This is rs1 server!
+  $ curl 192.168.67.100                            
+  This is rs1 server!
 
   $ curl 192.168.67.100
   This is rs2 server!
