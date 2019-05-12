@@ -1,10 +1,11 @@
 ---
 title: Jenkins安装与介绍
 author: Evobot
-date: 2019-04-22 21:53:01
-categories:  持续集成
+categories: 持续集成
 tags:
   - Jenkins
+abbrlink: ded64eb9
+date: 2019-04-22 21:53:01
 image:
 ---
 

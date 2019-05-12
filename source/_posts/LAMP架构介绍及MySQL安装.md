@@ -256,7 +256,9 @@ LAMP是Linux+Apache(httpd)+MySQL+PHP几种环境组成的一种架构，很多�
   
   mv mysql-5.7.17-linux-glibc2.5-x86_64 /usr/local/mysql
   ```
-  
+
+- 接着使用yum安装MySQL5.7的依赖包`perl-Data-Dumper`、 `libaio-devel`、 `numactl`、 `gcc`、 `openssl`;
+
 - 然后进行初始化操作：
     
   ```bash
