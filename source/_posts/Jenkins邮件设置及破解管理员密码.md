@@ -12,7 +12,7 @@ image:
 1. jenkins邮件设置
 2.  插件email-ext
 3.  破解jenkins管理员密码
-
+<!--more-->
 ---
 
 # Jenkins配置邮件
