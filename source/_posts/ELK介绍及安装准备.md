@@ -3,7 +3,7 @@ title: ELK介绍及安装准备
 author: Evobot
 date: 2019-06-12 21:59:05
 categories: ELK
-tags: 
+tags: ElasticSearch
 image:
 ---
 
@@ -44,7 +44,7 @@ image:
 
 ## 机器划分
 
-- 首先准备三台机器，IP分别为128、129、130；
+- 首先准备三台机器，IP分别为128、130、131；
 - 三台机器上都需要安装elasticsearch（后续称为es），1台主节点128，2台数据节点129、130；
 - es主128上安装kibana；
 - 1台es数据节点129上安装logstash；
