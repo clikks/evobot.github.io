@@ -177,7 +177,7 @@ theme_config:
       animated: true
       #color: "#808080"
       color: "#D60036"
-    copyright:
+    copyright: "evobot.cn 版权所有"
     powered:
       enable: false
       version: false
@@ -186,7 +186,7 @@ theme_config:
       enable: false
       version: false
 
-    custom_text:  <a target="_blank" rel="external nofollow" href="http://www.miitbeian.gov.cn"><b>蜀ICP备18010117号-1</b></a>
+    custom_text:  <a target="_blank" rel="external nofollow" href="http://www.beian.miit.gov.cn./"><b>蜀ICP备18010117号-1</b></a>
   canonical: true
 
   seo: true
