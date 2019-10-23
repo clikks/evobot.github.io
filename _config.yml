@@ -186,7 +186,7 @@ theme_config:
       enable: false
       version: false
 
-    custom_text: Hosted by <a target="_blank" rel="external nofollow" href="https://pages.coding.me"><b>Coding Pages</b></a>
+    custom_text: 蜀ICP备18010117号-1 <a target="_blank" rel="external nofollow" href="http://www.miitbeian.gov.cn"><b></b></a>
   canonical: true
 
   seo: true
