@@ -186,7 +186,7 @@ theme_config:
       enable: false
       version: false
 
-    custom_text: 蜀ICP备18010117号-1 <a target="_blank" rel="external nofollow" href="http://www.miitbeian.gov.cn"><b></b></a>
+    custom_text:  <a target="_blank" rel="external nofollow" href="http://www.miitbeian.gov.cn"><b>蜀ICP备18010117号-1</b></a>
   canonical: true
 
   seo: true
