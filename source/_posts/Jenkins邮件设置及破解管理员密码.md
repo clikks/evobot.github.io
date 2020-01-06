@@ -1,9 +1,10 @@
 ---
 title: Jenkins邮件设置及破解管理员密码
 author: Evobot
-date: 2019-05-14 22:45:02
 categories: 持续集成
 tags: Jenkins
+abbrlink: 1506edb
+date: 2019-05-14 22:45:02
 image:
 ---
 

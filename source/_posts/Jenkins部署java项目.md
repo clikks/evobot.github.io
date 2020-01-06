@@ -1,9 +1,10 @@
 ---
 title: Jenkins部署java项目
 author: Evobot
-date: 2019-05-16 22:19:51
 categories: 持续集成
 tags: Jenkins
+abbrlink: 3f968f09
+date: 2019-05-16 22:19:51
 image:
 ---
 

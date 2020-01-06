@@ -372,35 +372,29 @@ image:
 [root@localhost ~]# iptables -A INPUT -s 192.168.188.1 -p tcp --sport 1234 -d 192.168.188.128 --dport 80 -j DROP
 ```
 
-{% note danger %}
 
-`-A`表示增加规则，会将规则添加在最后，`INPUT`表示指定为INPUT链，未使用`-t`指定表名，默认操作的是`filter`表，`-s`表示源IP地址，`-p`指定链接的协议是tcp或udp，指定端口时，必须指定协议，`--sport`指定源端口；
+- `-A`表示增加规则，会将规则添加在最后，`INPUT`表示指定为INPUT链，未使用`-t`指定表名，默认操作的是`filter`表，`-s`表示源IP地址，`-p`指定链接的协议是tcp或udp，指定端口时，必须指定协议，`--sport`指定源端口；
 
-`-d`指定目的IP地址，`--dport`指定目的端口，`-j`指定要执行的操作，操作有`DROP`和`REJECT`，DROP表示丢弃，REJECT会在查看数据包之后拒绝并丢弃，一般使用DROP
+- `-d`指定目的IP地址，`--dport`指定目的端口，`-j`指定要执行的操作，操作有`DROP`和`REJECT`，DROP表示丢弃，REJECT会在查看数据包之后拒绝并丢弃，一般使用DROP
 
-{% endnote %}
 
 ```bash
 [root@localhost ~]# iptables -I INPUT -p tcp --dport 80 -j DROP
 ```
 
-{% note danger %}
 
-这里`-I`表示插入规则，使用`-I`插入规则，规则会在iptables规则的最前面，而`-A`则增加在最后面。
+- 这里`-I`表示插入规则，使用`-I`插入规则，规则会在iptables规则的最前面，而`-A`则增加在最后面。
 
-规则的前后，会有限过滤前面的规则，比如一个数据包同时满足两条规则，但会优先匹配在前面的一条，而不会再匹配后面的规则。
+- 规则的前后，会有限过滤前面的规则，比如一个数据包同时满足两条规则，但会优先匹配在前面的一条，而不会再匹配后面的规则。
 
-{% endnote %}
 
 ```bash
 [root@localhost ~]# iptables -I INPUT -s 192.168.1.1/24 -i eth0 -j ACCEPT 
 ```
 
-{% note danger %}
 
-`-i`作用是指定网卡，这里规则的含义是允许来自eth0网卡且源IP为192.168.1.1/24的数据包进入。
+- `-i`作用是指定网卡，这里规则的含义是允许来自eth0网卡且源IP为192.168.1.1/24的数据包进入。
 
-{% endnote %}
 
 
 
@@ -411,11 +405,9 @@ image:
 [root@localhost ~]# iptables -D INPUT -s 192.168.188.1 -p tcp --sport 1234 -d 192.168.188.128 --dport 80 -j DROP
 ```
 
-{% note danger %}
 
-使用`-D`选项可以将之前的规则删除，除了选项为`-D`之外，其他规则内容与增加规则时相同。
+- 使用`-D`选项可以将之前的规则删除，除了选项为`-D`之外，其他规则内容与增加规则时相同。
 
-{% endnote %}
 
 - 使用`iptables -nvL --line-number`可以在每条规则前输出相应的编号，使用编号可以方便我们删除对应的规则：
 

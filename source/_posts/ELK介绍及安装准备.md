@@ -1,9 +1,10 @@
 ---
 title: ELK介绍及安装准备
 author: Evobot
-date: 2019-06-12 21:59:05
 categories: ELK
 tags: ElasticSearch
+abbrlink: c4b55586
+date: 2019-06-12 21:59:05
 image:
 ---
 

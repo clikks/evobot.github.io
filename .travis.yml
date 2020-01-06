@@ -22,11 +22,12 @@ install:
   - rm -rf node_modules
   - rm -rf package-lock.json
   - npm cache clean --force
-  - npm install nunjucks@3.1.2 --ignore-scripts
+  - npm uninstall hexo-generator-index --save
+  #- npm install nunjucks@3.1.2 --ignore-scripts
   - npm install # 安装 package.json 中的插件
-  - git clone https://github.com/theme-next/theme-next-needmoreshare2 themes/next6.3/source/lib/needsharebutton
-  - git clone https://github.com/theme-next/theme-next-reading-progress themes/next6.3/source/lib/reading_progress
-  - git clone https://github.com/theme-next/theme-next-han themes/next6.3/source/lib/Han
+  #- git clone https://github.com/theme-next/theme-next-needmoreshare2 themes/next6.3/source/lib/needsharebutton
+  #- git clone https://github.com/theme-next/theme-next-reading-progress themes/next6.3/source/lib/reading_progress
+  #- git clone https://github.com/theme-next/theme-next-han themes/next6.3/source/lib/Han
 
 script:
   - hexo clean

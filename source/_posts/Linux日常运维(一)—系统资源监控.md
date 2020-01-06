@@ -243,7 +243,7 @@ table th:first-of-type {
   平均时间:      2.06      0.01      2.05      0.07     34.33
   ```
 
-{% note success %}sar命令在/var/log/sa/目录下除了生成sa[n]文件外，在第二天还会生成sar[n]文件，两个文件的区别是sa[n]文件为二进制文件，而sar[n]则是文本文件，可以使用cat命令查看 。{% endnote %}
+- `sar`命令在/var/log/sa/目录下除了生成sa[n]文件外，在第二天还会生成sar[n]文件，两个文件的区别是sa[n]文件为二进制文件，而sar[n]则是文本文件，可以使用cat命令查看 。
 
 ## **nload**命令
 

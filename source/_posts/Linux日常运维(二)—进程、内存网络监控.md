@@ -254,9 +254,7 @@ table th:first-of-type {
   /tmp/1.cap: tcpdump capture file (little-endian) - version 2.4 (Ethernet, capture length 262144)
   ```
 
-  {% note success %} 
-  抓取的文件是无法使用cat命令查看的，查看需要使用`tcpdump -r [filename]`进行查看。
-  {% endnote %}
+- 抓取的文件是无法使用cat命令查看的，查看需要使用`tcpdump -r [filename]`进行查看。
 
 - `tshark`命令是类似`tcpdump`的工具，使用这个命令需要安装`wireshark`软件包，常用用法如下:
 
@@ -274,7 +272,5 @@ table th:first-of-type {
   5 packets captured
   ```
 
-  {% note success %} 
-  上面的命令可以看到详细的ip地址、访问的网址，请求方法和请求的资源。关于`tshark`更多的用法，可以参考[tshark----wireshark的命令行工具](https://blog.csdn.net/hello2mao/article/details/53967900)
-  {% endnote %}
+- 上面的命令可以看到详细的ip地址、访问的网址，请求方法和请求的资源。关于`tshark`更多的用法，可以参考[tshark----wireshark的命令行工具](https://blog.csdn.net/hello2mao/article/details/53967900)
 ---

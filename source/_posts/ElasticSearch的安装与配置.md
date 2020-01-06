@@ -1,9 +1,10 @@
 ---
 title: ElasticSearch的安装与配置
 author: Evobot
-date: 2019-06-12 22:43:47
 categories: ELK
 tags: ElasticSearch
+abbrlink: c70364b4
+date: 2019-06-12 22:43:47
 image:
 ---
 

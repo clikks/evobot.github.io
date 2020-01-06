@@ -1,10 +1,11 @@
 ---
 title: Jenkins发布PHP代码
 author: Evobot
-date: 2019-04-23 21:54:01
 categories: 持续集成
 tags:
   - Jenkins
+abbrlink: aac66d25
+date: 2019-04-23 21:54:01
 image:
 ---
 

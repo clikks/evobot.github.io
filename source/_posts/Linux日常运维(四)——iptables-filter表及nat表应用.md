@@ -77,7 +77,6 @@ image:
 
   ![ip addr](https://blogimage-1251925320.cos.ap-chengdu.myqcloud.com/ipaddr.png)
 
-  {% note danger %}
 
   1. A机器打开路由转发功能，默认为0关闭状态：
 
@@ -93,7 +92,6 @@ image:
 
   4. 这时从B机器上已经能够ping通外网。
 
-  {% endnote %}
 
 - 需求2：C机器能够和A通信，让C机器能够直接连接到B机器的22端口，即需要做端口映射：
 

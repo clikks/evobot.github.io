@@ -40,13 +40,11 @@ image:
    $ echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bash_profile
    ```
 
-   {% note info %}
 
    使用zsh的需要将上面的`~/.bash_profile`替换为`~/.zshenv`；
 
    Ubuntu和Fedora则使用`~/.bashrc`替换；
 
-   {% endnote %}
 
 2. 然后将pyenv的初始化命令添加到shell中：
 
@@ -54,13 +52,11 @@ image:
    $ echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.bash_profile
    ```
 
-   {% note info %}
 
    使用zsh的需要将上面的`~/.bash_profile`替换为`~/.zshenv`；
 
    Ubuntu和Fedora则使用`~/.bashrc`替换；
 
-   {% endnote %}
 
 3. 安装完成后，需要重新登陆shell或者重新载入配置文件，如果上面替换过`.bash_profile`文件，则下面的命令也要更改为替换的文件名：
 
