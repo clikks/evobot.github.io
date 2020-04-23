@@ -29,7 +29,7 @@ after_script:
 # safelist
 branches: 
   only: 
-    - master 
+    - hexo
 
 language: node_js
 node_js: stable
