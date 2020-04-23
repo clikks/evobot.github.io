@@ -1,0 +1,41 @@
+language: node_js
+node_js: stable
+
+branches:
+  only:
+    - hexo
+
+cache:
+  directories:
+    - node_modules
+
+# S: Build Lifecycle
+before_install:
+  - openssl aes-256-cbc -K $encrypted_518a13a83897_key -iv $encrypted_518a13a83897_iv -in ./.travis/id_rsa.enc -out ~/.ssh/id_rsa -d
+  - chmod 600 ~/.ssh/id_rsa
+  - eval $(ssh-agent)
+  - ssh-add ~/.ssh/id_rsa
+  - cp .travis/ssh_config ~/.ssh/config
+  - npm install -g hexo-cli # 安装 hexo
+
+install:
+  - rm -rf node_modules
+  - rm -rf package-lock.json
+  - npm cache clean --force
+  - npm uninstall hexo-generator-index --save
+  #- npm install nunjucks@3.1.2 --ignore-scripts
+  - npm install # 安装 package.json 中的插件
+  #- git clone https://github.com/theme-next/theme-next-needmoreshare2 themes/next6.3/source/lib/needsharebutton
+  #- git clone https://github.com/theme-next/theme-next-reading-progress themes/next6.3/source/lib/reading_progress
+  #- git clone https://github.com/theme-next/theme-next-han themes/next6.3/source/lib/Han
+
+script:
+  - hexo clean
+  - hexo generate
+
+after_success:
+  - git config --global user.name "evobot"
+  - git config --global user.email "evobot@foxmail.com"
+# - sed -i'' "/^ *repo/s~github\.com~${githubToken}@github.com~" _config.yml
+  - hexo deploy
+# E: Build LifeCycle
