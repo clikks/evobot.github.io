@@ -120,5 +120,6 @@ deploy:
   type: 'git'
   repo:
     github: git@github.com:clikks/clikks.github.io.git,master
-    coding: git@git.coding.net:turbotig/turbotig.coding.me.git,coding-pages
+#    coding: git@git.coding.net:turbotig/turbotig.coding.me.git,coding-pages
+    coding: git@e.coding.net:turbotig/turbotig.coding.me/turbotig.coding.me.git,coding-pages
 
