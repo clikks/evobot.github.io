@@ -11,6 +11,7 @@ install:
 
 before_install:
 - export TZ='Asia/Shanghai'
+- npm install -g hexo-cli
 
 script: 
 - hexo clean
@@ -31,8 +32,8 @@ branches:
   only: 
     - hexo
 
-#git:
-#  depth: 1
+git:
+  depth: 1
 
 env: 
   global: 
