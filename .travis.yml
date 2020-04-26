@@ -24,7 +24,7 @@ after_script:
 - git add . 
 - git commit -m "Update docs with TRAVIS-CI."
 - git push --force --quiet "https://${github}@${GH_REF}" master:master
-- git push --force --quiet "https://evobot:${coding}@${CODING_REF}" master:coding-pages
+- git push --force --quiet "https://evobot:${CO_TOKEN}@${CODING_REF}" master:coding-pages
 
 # safelist
 branches: 
