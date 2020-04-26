@@ -5,7 +5,7 @@ install:
 - rm -rf node_modules
 - rm -rf package-lock.json
 - npm cache clean --force
-- npm uninstall hexo-generator-index --save
+#- npm uninstall hexo-generator-index --save
 
 - npm install
 
