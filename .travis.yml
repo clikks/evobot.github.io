@@ -14,7 +14,7 @@ before_install:
 
 script: 
 - hexo clean
-- hexo g
+- hexo generate
 
 after_script: 
 - cd ./public 
@@ -31,11 +31,8 @@ branches:
   only: 
     - hexo
 
-language: node_js
-node_js: stable
-
-git:
-  depth: 1
+#git:
+#  depth: 1
 
 env: 
   global: 
