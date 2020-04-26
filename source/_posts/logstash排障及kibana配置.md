@@ -1,10 +1,11 @@
 ---
 title: logstash排障及kibana配置
 author: Evobot
-date: 2020-04-21 21:57:15
 categories: ELK
 tags:
   - logstash
+abbrlink: 51c2608c
+date: 2020-04-21 21:57:15
 image:
 ---
 

@@ -1,19 +1,14 @@
 ---
 title: ELK采集nginx日志
 author: Evobot
-date: 2020-04-22 21:34:17
 categories: ELK
 tags:
   - logstash
   - kibana
+abbrlink: 5ae97a45
+date: 2020-04-22 21:34:17
 image:
 ---
-
-
-
-
-
-
 
 
 
