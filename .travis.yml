@@ -1,31 +1,34 @@
 language: node_js
 node_js: stable
 
-install: 
-- rm -rf node_modules
-- rm -rf package-lock.json
-- npm cache clean --force
-#- npm uninstall hexo-generator-index --save
+cache:
+  directories:
+    - node_modules
 
-- npm install
+install: 
+  #- rm -rf node_modules
+  #- rm -rf package-lock.json
+  #- npm cache clean --force
+  #- npm uninstall hexo-generator-index --save
+  - npm install
 
 before_install:
-- export TZ='Asia/Shanghai'
-- npm install -g hexo-cli
+  - export TZ='Asia/Shanghai'
+  - npm install -g hexo-cli
 
 script: 
-- hexo clean
-- hexo generate
+  - hexo clean
+  - hexo generate --debug
 
 after_script: 
-- cd ./public 
-- git init 
-- git config user.name "Travis-CI"
-- git config user.email "Travis-CI@evobot.cn" 
-- git add . 
-- git commit -m "Update docs with TRAVIS-CI."
-- git push --force "https://${github}@${GH_REF}" master:master
-- git push --force "https://${CO_USERNAME}:${CO_TOKEN}@${CODING_REF}" master:coding-pages
+  - cd ./public 
+  - git init 
+  - git config user.name "Travis-CI"
+  - git config user.email "Travis-CI@evobot.cn" 
+  - git add . 
+  - git commit -m "Update docs with TRAVIS-CI."
+  - git push --force "https://${github}@${GH_REF}" master:master
+  - git push --force "https://${CO_USERNAME}:${CO_TOKEN}@${CODING_REF}" master:coding-pages
 
 # safelist 
 branches: 
