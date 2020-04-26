@@ -24,7 +24,7 @@ after_script:
 - git add . 
 - git commit -m "Update docs with TRAVIS-CI."
 - git push --force "https://${github}@${GH_REF}" master:master
-- git push --force "https://'anycosmo@qq.com':${CO_TOKEN}@${CODING_REF}" master:coding-pages
+- git push --force "https://${CO_USERNAME}:${CO_TOKEN}@${CODING_REF}" master:coding-pages
 
 # safelist 
 branches: 
