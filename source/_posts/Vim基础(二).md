@@ -3,7 +3,6 @@ title: Vim基础(二)
 author: Evobot
 categories: Centos7
 tags:
-  - Linux
   - Centos
 abbrlink: 49f9b403
 date: 2018-04-14 01:42:17
@@ -12,7 +11,7 @@ image:
 
 
 
-![vim模式关系](http://qiniu.evobot.cn/15236446713184315ls9p.png?imageslim)
+![vim模式关系](https://s1.ax1x.com/2020/04/28/JIG5ZV.png)
 
 本文主要介绍Vim的编辑模式相关操作以及命令模式的相关操作。
 

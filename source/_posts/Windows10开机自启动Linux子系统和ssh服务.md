@@ -4,7 +4,9 @@ author: Evobot
 abbrlink: 5a8b1c0f
 date: 2018-06-01 17:17:21
 categories: Linux
-tags: [windows10,WSL]
+tags:
+  - windows10
+  - WSL
 image:
 ---
 

@@ -3,8 +3,9 @@ title: Shell基础(三)
 author: Evobot
 abbrlink: 3711cd5b
 date: 2018-04-23 23:31:37
-categories: Centos7
-tags: [Linux, Centos]
+categories: Sehll
+tags:
+  - Shell
 image:
 ---
 
@@ -371,11 +372,11 @@ image:
   - **`exec`**： 用法为`exec [/path/to/script.sh]`，这种方式不会新开一个sub-shell执行被调用的脚本，而是直接与父脚本在同一个shell中执行，但是被调用的脚本执行完以后，父脚本`exec`行之后的内容就不会再继续执行；
   - **`source`**： 用法为`source [/path/to/script.sh]`，source与exec唯一的不同点在于被调用的脚本执行完之后会继续执行父脚本的后续命令，同时子脚本的环境变量会影响父级环境变量。
 
-  ​
+  
 
 - 可以通过下面两个脚本体会三种调用之间的不同：
 
-  {% codeblock 1.sh lang:bash%}
+  ```shell
   #!/bin/bash
 
   A=B
@@ -395,9 +396,11 @@ image:
   esac
   echo "PID for 1.sh after exec/source/fork;$$"
   echo "1.sh: \$A is $A"
-  {% endcodeblock %}
 
-  {% codeblock 2.sh lang:bash%}
+  ```
+  
+
+  ```shell
   #!/bin/bash
 
   echo "PID for 2.sh: $$"
@@ -405,7 +408,8 @@ image:
   A=C
   export A
   echo "2.sh: \$A is $A"
-  {% endcodeblock %}
+  ```
+
 
 - 执行结果如下：
 

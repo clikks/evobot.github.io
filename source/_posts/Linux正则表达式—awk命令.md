@@ -3,7 +3,6 @@ title: Linux正则表达式——awk命令
 author: Evobot
 categories: Centos7
 tags:
-  - Linux
   - Centos
 abbrlink: c7f852f3
 date: 2018-04-27 22:17:13

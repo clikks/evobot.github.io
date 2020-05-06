@@ -1,10 +1,9 @@
 ---
 title: Shell基础(一)
 author: Evobot
-categories: Centos7
+categories: Shell
 tags:
-  - Linux
-  - Centos
+  - Shell
 abbrlink: e6d37612
 date: 2018-04-20 23:05:06
 image:

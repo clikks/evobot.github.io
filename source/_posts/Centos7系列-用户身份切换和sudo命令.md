@@ -1,10 +1,11 @@
 ---
-title: 'Centos7系列:用户身份切换和sudo命令'
+title: Centos7系列:用户身份切换和sudo命令
 author: Evobot
 abbrlink: 9f1fc446
 date: 2018-04-05 02:18:26
 categories: Centos7
-tags: [Linux, Centos]
+tags:
+  - Centos
 image:
 ---
 

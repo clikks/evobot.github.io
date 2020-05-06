@@ -1,9 +1,9 @@
 ---
 title: shell编程（二）
 author: Evobot
-categories: shell编程
+categories: Shell
 tags:
-  - shell基础
+  - Shell
 abbrlink: efa2799c
 date: 2018-07-12 21:30:57
 image:
@@ -118,18 +118,18 @@ table th:first-of-type {
 | `[ -b FILE ]` | 如果 FILE 存在且是一个块特殊文件则为真。|
 | `[ -c FILE ]` | 如果 FILE 存在且是一个字特殊文件则为真。 |
 | `[ -g FILE ]` | 如果 FILE 存在且已经设置了SGID则为真。 |
-| `[ -h FILE ]` | 如果 FILE 存在且是一个符号连接则为真。| 
+| `[ -h FILE ]` | 如果 FILE 存在且是一个符号连接则为真。|
 | `[ -k FILE ]` | 如果 FILE 存在且已经设置了粘制位则为真。 |
-| `[ -p FILE ]` | 如果 FILE 存在且是一个名字管道(F如果O)则为真。| 
+| `[ -p FILE ]` | 如果 FILE 存在且是一个名字管道(F如果O)则为真。|
 | `[ -s FILE ]` | 如果 FILE 存在且大小不为0则为真。  |
-| `[ -t FD ]`   | 如果文件描述符 FD 打开且指向一个终端则为真。| 
+| `[ -t FD ]`   | 如果文件描述符 FD 打开且指向一个终端则为真。|
 | `[ -u FILE ]` | 如果 FILE 存在且设置了SUID (set user ID)则为真。 |
 | `[ -O FILE ]` | 如果 FILE 存在且属有效用户ID则为真。 |
 | `[ -G FILE ]` |如果 FILE 存在且属有效用户组则为真。 |
-| `[ -L FILE ]` | 如果 FILE 存在且是一个符号连接则为真。|  
+| `[ -L FILE ]` | 如果 FILE 存在且是一个符号连接则为真。|
 | `[ -S FILE ]` | 如果 FILE 存在且是一个套接字则为真。  |
 | `[ FILE1 -ot FILE2 ]`| 如果 FILE1 比 FILE2 要老, 或者 FILE2 存在且 FILE1 不存在则为真。  |
-| `[ FILE1 -ef FILE2 ]`|  如果 FILE1 和 FILE2 指向相同的设备和节点号则为真。| 
+| `[ FILE1 -ef FILE2 ]`|  如果 FILE1 和 FILE2 指向相同的设备和节点号则为真。|
 | `[ -z STRING ]` | “STRING” 的长度为零则为真。  |
 | `[ -n STRING ] or [ STRING ]`| “STRING” 的长度为非零 non-zero则为真。 |
 

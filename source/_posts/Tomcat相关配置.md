@@ -4,7 +4,6 @@ author: Evobot
 categories: Tomcat
 tags:
   - Tomcat
-  - Centos
   - zrlog
 abbrlink: ff06060d
 date: 2018-06-27 21:41:57
@@ -150,7 +149,7 @@ image:
 
   ```
 
-  ​
+  
 
 - 其中`catalina`开头的是综合日志，记录了Tomcat服务相关的信息和错误信息:
 
@@ -198,7 +197,6 @@ image:
 
   - `prefix`定义日志文件名的前缀，`suffix`定义日志文件后缀名，`pattern`定义日志格式，`directory`定义日志存储目录。
   - 新增加的虚拟主机默认不会生成类似默认虚拟主机的localhost.data.log日志，错误日志会统一记录到catalina.out中，所以Tomcat出现问题时，应该第一时间查看catalina.out日志。
-
 
 ---
 

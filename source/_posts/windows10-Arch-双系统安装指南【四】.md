@@ -1,7 +1,6 @@
 ---
 title: windows10 & Arch 双系统安装指南【四】
 tags:
-  - linux
   - archlinux
   - cinnamon
   - windows10
@@ -9,7 +8,7 @@ categories: Linux
 abbrlink: f5f3d6e0
 date: 2016-02-18 22:05:11
 ---
-![](http://images.evobot.cn/arch%20cinnamon%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE20160214155947.png)
+![](https://s1.ax1x.com/2020/04/28/JI8XE8.png)
 经过前一篇的步骤，我们完成了常用的应用软件的安装，可以说现在arch已经完全不影响使用了，但是，我们都希望自己的系统环境比较美观，所以，这一篇，我们来对系统进行美化，具体包括主题安装，扩展设置，字体配置等等。
 <!-- more -->
 
@@ -34,7 +33,7 @@ $ sudo tar zxvf fonts.tar.gz -C /etc/
 sudo pacman -S gnome-tweak-tool
 ```
 打开优化工具，将字体设置为自己喜欢的，下面是我的配置：
-![](http://images.evobot.cn/arch%20cinnamon%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE20160225212027.png)
+![](https://s1.ax1x.com/2020/04/28/JI8v4g.png)
 在系统的字体设置里面也使用同样的配置。
 
 # 主题配置
@@ -55,7 +54,8 @@ $ sudo tar zxvf Yosemite Light.0.3.tar.gz -C /usr/share/themes
 tar zxvf OpenZone.tar.gz -C /usr/share/icons
 ```
 现在我们的主题就全部安装完成了，剩下的只需要在系统设置里的主题里设置一下就可以了，在主题设置里，下载Numix桌面主题，下面是我的配置：
-![](http://images.evobot.cn/arch%20cinnamon%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE20160225214812.png)
+![](https://s1.ax1x.com/2020/04/28/JI8zCQ.png)
+
 # VIM配置
 ## 命令别名
 设置命令vi为vim
@@ -106,4 +106,4 @@ $ sudo pacman -S docky
 ```
 最后换个壁纸，按照自己的喜好配置一下，就可以了。
 送上壁纸:
-![](http://images.evobot.cn/arch%20cinnamonu2oPC.jpg)
+![](https://s1.ax1x.com/2020/04/28/JIGPuq.jpg)

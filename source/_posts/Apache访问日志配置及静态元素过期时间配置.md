@@ -3,8 +3,6 @@ title: Apache访问日志配置及静态元素过期时间配置
 author: Evobot
 categories: LAMP
 tags:
-  - Linux
-  - Centos
   - Apache
 abbrlink: 8097d660
 date: 2018-05-30 21:12:11

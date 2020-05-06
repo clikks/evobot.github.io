@@ -3,8 +3,6 @@ title: Apache用户认证、域名跳转及访问日志
 author: Evobot
 categories: LAMP
 tags:
-  - Linux
-  - Centos
   - Apache
 abbrlink: af0b01
 date: 2018-05-29 21:00:27

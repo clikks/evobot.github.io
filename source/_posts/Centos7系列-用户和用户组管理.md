@@ -1,10 +1,11 @@
 ---
-title: 'Centos7系列:用户和用户组管理'
+title: Centos7系列:用户和用户组管理
 author: Evobot
 abbrlink: adac5712
 date: 2018-04-02 21:30:40
 categories: Centos7
-tags: [Linux, Centos]
+tags:
+  - Centos
 image:
 ---
 

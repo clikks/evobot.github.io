@@ -3,8 +3,8 @@ title: 搭建Git服务器及GitLab的使用
 author: Evobot
 categories: 代码管理平台
 tags:
-  - Git
-  - GitLab
+  - GIT
+  - Gitlab
 abbrlink: 7eaff4c4
 date: 2018-09-12 21:29:02
 image:

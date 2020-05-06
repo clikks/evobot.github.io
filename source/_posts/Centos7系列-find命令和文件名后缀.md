@@ -4,7 +4,8 @@ author: Evobot
 abbrlink: f4c9d6be
 date: 2018-03-30 21:13:03
 categories: Centos7
-tags: [Linux, Centos]
+tags: 
+  - Centos
 image:
 ---
 

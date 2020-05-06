@@ -1,9 +1,9 @@
 ---
 title: shell编程（一）
 author: Evobot
-categories: shell编程
+categories: Shell
 tags:
-  - shell基础
+  - Shell
 abbrlink: dfb49544
 date: 2018-07-11 21:25:30
 image:

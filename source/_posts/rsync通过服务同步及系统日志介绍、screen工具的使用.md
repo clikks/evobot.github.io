@@ -1,10 +1,9 @@
 ---
 title: rsync通过服务同步及系统日志介绍、screen工具的使用
 author: Evobot
-categories: Centos7
+categories: rsync
 tags:
-  - Linux
-  - Centos
+  - rsync
 abbrlink: ccfd4295
 date: 2018-05-15 22:03:12
 image:
@@ -194,7 +193,7 @@ image:
 ### 日志配置
 - 通常不需要修改**logrotate.conf**文件，只需要将需要轮询的日志独立配置文件放在`/etc/logrotate.d/`目录下即可；
 - 创建一个10MB的随机比特流数据日志文件：
-    
+  
   ```bash
   touch /var/log/test-log
   head -c 10M /dev/urandom > /var/log/test-log
@@ -244,7 +243,7 @@ image:
   ```
   
 - 分割的日志按照日期命名：
-    
+  
   ```bash
   /var/log/test-log {
     monthly
@@ -266,7 +265,7 @@ image:
   ```
   
 - 为某个特定配置调用：
-    
+  
   ```bash
   # logrotate /etc/logrotate.d/test-log
   ```
@@ -279,7 +278,7 @@ image:
   ```
   
 - 不满足日志轮询条件时，可以使用`-f`参数强制轮询,`-v`输出详细信息：
-    
+  
   ```bash
   # logrotate -vf /etc/logrotate.d/test-log
   ```

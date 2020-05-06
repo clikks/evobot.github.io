@@ -1,10 +1,9 @@
 ---
 title: rsync工具的使用
 author: Evobot
-categories: Centos7
+categories: rsync
 tags:
-  - Linux
-  - Centos
+  - rsync
 abbrlink: d9f5c2d9
 date: 2018-05-14 21:31:20
 image:

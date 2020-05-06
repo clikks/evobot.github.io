@@ -1,10 +1,11 @@
 ---
-title: 'Centos7系列:文件和目录权限(二)'
+title: Centos7系列:文件和目录权限(二)
 author: Evobot
 abbrlink: a0538766
 date: 2018-03-29 23:33:22
 categories: Centos7
-tags: [Linux, Centos]
+tags:
+  - Centos
 image:
 ---
 

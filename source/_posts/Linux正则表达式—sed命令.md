@@ -3,7 +3,6 @@ title: Linux正则表达式——sed命令
 author: Evobot
 categories: Centos7
 tags:
-  - Linux
   - Centos
 image:
 abbrlink: 8d187ebb

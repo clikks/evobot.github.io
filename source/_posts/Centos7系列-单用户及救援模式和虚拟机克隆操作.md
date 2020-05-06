@@ -1,11 +1,10 @@
 ---
-title: 'Centos7系列:单用户及救援模式和虚拟机克隆操作'
+title: Centos7系列:单用户及救援模式和虚拟机克隆操作
 author: Evobot
 categories: Centos7
 tags:
-  - Linux
   - Centos
-image: 'http://qiniu.evobot.cn/1521312295772z2f2ptcr.png?imageslim'
+image: 'https://s1.ax1x.com/2020/04/28/JIMqx0.png'
 abbrlink: 19bc2f97
 date: 2018-03-22 22:21:04
 photo:
@@ -19,11 +18,11 @@ photo:
 ## 配置单用户模式
 
 1. 在Centos7启动界面下，对第一个启动项按**e**键进入配置界面。
-  ![grub配置](http://qiniu.evobot.cn/1521312295772z2f2ptcr.png?imageslim)
+  ![grub配置](https://s1.ax1x.com/2020/04/28/JIMqx0.png)
 2. 将光标定位到`linux16`开头的行，再将光标移动到**ro**位置。
-  ![启动项配置](http://qiniu.evobot.cn/15213123237461a612knk.png?imageslim)
+  ![启动项配置]( https://s1.ax1x.com/2020/04/28/JIQixx.png)
 3. 将**ro**只读修改为**rw**读写模式，并且添加`init=/sysroot/bin/sh`在**rw**后面。
-  ![修改启动项](http://qiniu.evobot.cn/1521312341229joes7584.png?imageslim)
+  ![修改启动项](https://s1.ax1x.com/2020/04/28/JIQEqO.png)
 4. **sysroot**就是我们原先的系统root路径，完成之后，按**Ctrl+x**键，保存退出。
 
 ## 进入单用户模式
@@ -101,7 +100,7 @@ photo:
 
 - 在BIOS中选择boot，使用**+-**号将CD-ROM移到首位，再按**F10**保存退出；
 
-  ![bios设置](http://qiniu.evobot.cn/152173531953668h6dyus.png?imageslim)
+  ![bios设置](https://s1.ax1x.com/2020/04/28/JIQKJA.png)
 
 - 进入安装光盘的启动界面，选择第三项`Troubleshooting`，然后选择`Rescue a CentOS system`回车两次；
 

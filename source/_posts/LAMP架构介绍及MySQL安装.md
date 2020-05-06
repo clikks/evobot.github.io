@@ -3,7 +3,6 @@ title: LAMP架构介绍及MySQL安装
 author: Evobot
 categories: LAMP
 tags:
-  - Linux
   - Centos
   - MySQL
 abbrlink: cd21d578
@@ -260,7 +259,7 @@ LAMP是Linux+Apache(httpd)+MySQL+PHP几种环境组成的一种架构，很多�
 - 接着使用yum安装MySQL5.7的依赖包`perl-Data-Dumper`、 `libaio-devel`、 `numactl`、 `gcc`、 `openssl`;
 
 - 然后进行初始化操作：
-    
+  
   ```bash
   mkdir -p /data/mysql
   
@@ -272,7 +271,7 @@ LAMP是Linux+Apache(httpd)+MySQL+PHP几种环境组成的一种架构，很多�
   >`[Note] A temporary password is generated for root@localhost: CrG_3SlTYe3:`
   
 - 然后生成密钥：
-    
+  
   ```bash
   ./bin/mysql_ssl_rsa_setup --datadir=/data/mysql/
   ```

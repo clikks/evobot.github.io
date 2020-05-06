@@ -4,7 +4,8 @@ author: Evobot
 abbrlink: 400407c0
 date: 2018-04-25 21:26:55
 categories: Centos7
-tags: [Linux, Centos]
+tags:
+  - Centos
 image:
 ---
 
@@ -22,7 +23,7 @@ image:
 
 ​    `grep`命令主要用来过滤指定的关键词的，最简单的用法是`grep [keyword] [filename]`，在Centos7中使用grep命令，会自动高亮显示过滤的关键词。
 
-![grep高亮显示](http://qiniu.evobot.cn/1524665036744upqnxqqe.png?imageslim)
+![grep高亮显示](https://s1.ax1x.com/2020/04/28/JI0qzT.png)
 
 ## **grep**命令的选项
 
@@ -222,11 +223,11 @@ table th {
 
    > 非数字的行，包含数字的行中，除数字外都被匹配
 
-   ![非数字的行](http://qiniu.evobot.cn/1524669414781k7u9ah56.png?imageslim)
+   ![非数字的行](https://s1.ax1x.com/2020/04/28/JI0fsg.png)
 
    > 过滤非数字开头的行
 
-   ![非数字开头的行](http://qiniu.evobot.cn/1524669534782i30jjmce.png?imageslim)
+   ![非数字开头的行](https://s1.ax1x.com/2020/04/28/JI02z8.png)
 
 5.  过滤包含任意一个字符的关键字：
 

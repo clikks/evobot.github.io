@@ -1,3 +1,4 @@
+---
 title: 'Centos7系列:文件及目录管理相关命令(三)'
 author: Evobot
 abbrlink: 8385c26e
@@ -8,6 +9,8 @@ tags:
 date: 2018-03-27 22:29:06
 image:
 ---
+
+
 > 主要介绍Linux环境变量PATH，以及移动`mv`、复制`cp`命令的使用，另外则是查看文档操作相关的命令:`cat`、`more`、`less`和`head`。
 
 <!-- more -->

@@ -1,9 +1,10 @@
 ---
 title: 使用beats采集日志
 author: Evobot
-date: 2020-04-26 21:00:19
 categories: ELK
 tags: beats
+abbrlink: 719ae57a
+date: 2020-04-26 21:00:19
 image:
 ---
 

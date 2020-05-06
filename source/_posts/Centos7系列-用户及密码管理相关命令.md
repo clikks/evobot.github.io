@@ -1,11 +1,12 @@
 ---
-title: 'Centos7系列:用户及密码管理相关命令'
+title: Centos7系列:用户及密码管理相关命令
 author: Evobot
 abbrlink: 2af55eed
 date: 2018-04-03 22:44:32
 categories: Centos7
-tags: [Linux, Centos]
-photo: http://qiniu.evobot.cn/1522771004764cu3a7i8u.png?imageslim
+tags:
+  - Centos
+image: https://s1.ax1x.com/2020/04/28/JI3rOP.png
 ---
 
 

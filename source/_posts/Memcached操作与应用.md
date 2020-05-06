@@ -3,7 +3,7 @@ title: Memcached操作与应用
 author: Evobot
 categories: NoSQL
 tags:
-  - Memcached
+  - memcached
 abbrlink: 32089b8c
 date: 2018-08-15 23:19:30
 image:

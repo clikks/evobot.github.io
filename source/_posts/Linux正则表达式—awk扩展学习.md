@@ -3,7 +3,6 @@ title: Linux正则表达式——awk扩展学习
 author: Evobot
 categories: Centos7
 tags:
-  - Linux
   - Centos
 abbrlink: 9960c119
 date: 2018-05-03 22:24:01
@@ -57,29 +56,30 @@ image:
 
 - 例如将两个文件中，第一列相同的行合并到同一行，文件内容如下：
 
-  {% codeblock 1.txt %}
+  ```
   1 aa
   2 bb
   3 ee
   4 ss
-  {% endcodeblock %}
-  {% codeblock 2.txt %}
+  ```
+  
+  ```
   1 ab
   2 cd
   3 ad
   4 bd
   5 de
-  {% endcodeblock %}
+  ```
 
 - 合并后结果为：
 
-  {% codeblock result.txt %}
+  ```
   1 ab aa
   2 cd bb
   3 ad ee
   4 bd ss
   5 de
-  {% endcodeblock %}
+  ```
 
 - 使用`awk`实现的命令为：
 

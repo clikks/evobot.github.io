@@ -4,7 +4,6 @@ author: Evobot
 categories: zabbix
 tags:
   - zabbix
-  - nginx
   - 监控
 abbrlink: 7a0f12f0
 date: 2018-07-11 11:32:00

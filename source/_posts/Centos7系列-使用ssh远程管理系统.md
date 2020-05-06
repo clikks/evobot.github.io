@@ -1,11 +1,12 @@
 ---
-title: 'Centos7系列:使用ssh远程管理系统'
+title: Centos7系列:使用ssh远程管理系统
 author: Evobot
 abbrlink: cb3f93e8
 date: 2018-03-21 22:59:10
 categories: Centos7
-tags: [Linux, Centos]
-image: http://qiniu.evobot.cn/1521646685090x27m0c8b.png?imageslim
+tags:
+  - Centos
+image: https://s1.ax1x.com/2020/04/28/JIQ2FJ.png
 photo:
 ---
 
@@ -22,13 +23,13 @@ photo:
 
 - 打开软件，界面如下：
 
-  ![PuTTY](http://qiniu.evobot.cn/1521645606365crhs2ghy.png?imageslim)
+  ![PuTTY](https://s1.ax1x.com/2020/04/28/JIQ5y6.png)
 
 - PuTTY的具体设置可以参考这篇博文：[Putty工具保存配置的小技巧](http://blog.csdn.net/tianlesoftware/article/details/5831605)
 
 - 点击**Open**就可以看到登陆窗口：
 
-  ![登陆窗口](http://qiniu.evobot.cn/15216461185495xjxn33b.png?imageslim)
+  ![登陆窗口](https://s1.ax1x.com/2020/04/28/JIQHTe.png)
 
 - 与在虚拟机中登陆相同，输入用户名root和密码，就可以登陆到Centos系统。
 
@@ -38,11 +39,11 @@ photo:
 
 - Xshell打开时会显示会话窗口，我们点击新建来创建一个新的连接：
 
-  ![Xshell](http://qiniu.evobot.cn/1521646685090x27m0c8b.png?imageslim)
+  ![Xshell](https://s1.ax1x.com/2020/04/28/JIQqFH.png)
 
 - 新建会话如下，填写主机的名称，IP地址以及端口号，SSH协议默认为22端口：
 
-  ![新建会话](http://qiniu.evobot.cn/1521646893899i9spdd1t.png?imageslim)
+  ![新建会话](https://s1.ax1x.com/2020/04/28/JIQjSI.png)
 
 - 其余我们可以设置用户身份验证，输入用户面密码或者使用密钥认证，还要外观配置等等，更加详细的Xshell配置，可以参考这篇博文：[Xshell学习](https://www.cnblogs.com/perseverancevictory/p/4910145.html)
 
@@ -54,11 +55,11 @@ photo:
 
 - 安装PuTTY时，默认安装的有`PuTTYgen`软件，打开软件，点击**Generate**来生成密钥对,在生成时需要晃动鼠标加快生成速度：
 
-  ![PuTTYgen](http://qiniu.evobot.cn/1521648026211ycih6g5o.png?imageslim)
+  ![PuTTYgen](https://s1.ax1x.com/2020/04/28/JIQx6P.png)
 
 - 如图所示，红框1内就是生成的公钥，点击红框2的**Save private key**，将私钥保存到本地。
 
-  ![生成密钥](http://qiniu.evobot.cn/1521648266102nqn3osvx.png?imageslim********)
+  ![生成密钥](https://s1.ax1x.com/2020/04/28/JIl90S.png)
 
 ## 添加公钥到Centos
 
@@ -74,23 +75,23 @@ photo:
 - 之后还需要关闭`selinux`，使用命令`setenforce 0`临时关闭selinux；
 - 接下来在PuTTY中配置会话的私钥，如下图，选中已经保存的私钥，然后在session内保存即可：
 
-  ![加载私钥](http://qiniu.evobot.cn/1521649098132szmq5m5r.png?imageslim)
+  ![加载私钥](https://s1.ax1x.com/2020/04/28/JIlikQ.png)
 
 - 点击Open，输入用户名root，这时就不用输入密码即可登陆到系统：
   
-  ![密钥登陆](http://qiniu.evobot.cn/1521649365052zfmeg2wi.png?imageslim)
+  ![密钥登陆](https://s1.ax1x.com/2020/04/28/JIlkfs.png)
 
 ## Xshell使用密钥认证
 
 - Xshell生成密钥只需要在窗口菜单栏点击**工具**-**新建用户密钥生成向导**，点击两次下一步到设置密钥的名称以及密钥加密密码：
 
-  ![Xshell生成密钥](http://qiniu.evobot.cn/1521649669179f475f92v.png?imageslim)
+  ![Xshell生成密钥](https://s1.ax1x.com/2020/04/28/JIlEpn.png)
 
 - 点击下一步会显示生成的公钥字符串，与之前添加公钥的方式相同，到Centos中添加公钥。
 
 - 然后在Xshell的窗口中打开会话属性，在用户身份验证中配置私钥即可：
 
-  ![Xshell密钥登陆](http://qiniu.evobot.cn/15216501748407pz0kf1w.png?imageslim)
+  ![Xshell密钥登陆](https://s1.ax1x.com/2020/04/28/JIleXV.png)
 
 - 之后我们点击连接就不再需要输入用户名密码即可登陆。
 

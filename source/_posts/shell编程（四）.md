@@ -1,9 +1,9 @@
 ---
 title: shell编程（四）
 author: Evobot
-categories: shell编程
+categories: Shell
 tags:
-  - shell编程
+  - Shell
 abbrlink: 1591c3ab
 date: 2018-07-16 00:15:14
 image:
@@ -282,7 +282,7 @@ image:
 
 - 程序架构如下：
 
-  ![shell-mon](https://blogimage-1251925320.cos.ap-chengdu.myqcloud.com/shell-mon.png)
+  ![shell-mon](https://s1.ax1x.com/2020/04/28/JItuvj.png)
 
   - bin目录下是主程序；conf目录下是配置文件；shares目录下是各个监控脚本；mail目录下是邮件引擎；log目录下则是日志。
 

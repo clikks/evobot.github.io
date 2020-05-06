@@ -1,9 +1,9 @@
 ---
 title: shell编程（七）
 author: Evobot
-categories: shell编程
+categories: Shell
 tags:
-  - shell编程
+  - Shell
 abbrlink: cd013aaa
 date: 2018-07-19 22:53:04
 image:

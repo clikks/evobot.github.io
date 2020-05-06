@@ -5,7 +5,7 @@ categories: Centos7
 tags:
   - Linux
   - Centos
-image: 'http://qiniu.evobot.cn/1523810699086ylm0327m.png?imageslim'
+image: https://s1.ax1x.com/2020/04/28/JINedx.png
 abbrlink: 701184ad
 date: 2018-04-14 22:17:14
 ---
